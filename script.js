@@ -1,18 +1,6 @@
-// script.js - Full working version with your MINI Cooper added
+// script.js - Full working version with MINI Cooper and your real photo
 
 const cars = [
-  // You can add your previous example cars back here if you want them
-  // {
-  //   make: "Toyota",
-  //   model: "Camry",
-  //   year: 2022,
-  //   price: 24500,
-  //   mileage: 18000,
-  //   desc: "One owner, excellent condition, full service history.",
-  //   img: "images/toyota-camry-2022.jpg"
-  // },
-  // ... more old cars ...
-
   {
     make: "MINI",
     model: "Cooper",
@@ -82,10 +70,25 @@ A solid, economical MINI with good performance and low running costs.
 
 🚚 Delivery available
 📩 Message to reserve or arrange viewing. 🚗`,
-    img: "images/2010-mini-cooper-silver.jpg"  // ← make sure this file exists in your images/ folder
+    img: "/IMG_9287.jpeg"     // ← your chosen photo from the repo root
   }
 
-  // Add more real cars here in the same format when ready
+  // You can add more cars here later in the same format
+  // Example:
+  // {
+  //   make: "Other Brand",
+  //   model: "Model",
+  //   year: 2020,
+  //   price: 15000,
+  //   priceDisplay: "£15,000",
+  //   mileage: 50000,
+  //   mileageUnit: "miles",
+  //   color: "Black",
+  //   fuel: "Petrol",
+  //   transmission: "Manual",
+  //   img: "/IMG_9290.jpeg",
+  //   desc: "Description here..."
+  // }
 ];
 
 const carGrid = document.getElementById('carGrid');
