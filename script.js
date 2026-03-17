@@ -1,7 +1,7 @@
 // Sample car data - your real Mazda B2500 added!
 const cars = [
   {
-    make: "Mazda",
+    make: "Mazd",
     model: "B2500 2.5TD Pickup",
     year: 2005,
     price: 2500,
