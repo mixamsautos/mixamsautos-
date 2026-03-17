@@ -1,5 +1,17 @@
+// script.js - Full working version with your MINI Cooper added
+
 const cars = [
-  // ... your existing cars ...
+  // You can add your previous example cars back here if you want them
+  // {
+  //   make: "Toyota",
+  //   model: "Camry",
+  //   year: 2022,
+  //   price: 24500,
+  //   mileage: 18000,
+  //   desc: "One owner, excellent condition, full service history.",
+  //   img: "images/toyota-camry-2022.jpg"
+  // },
+  // ... more old cars ...
 
   {
     make: "MINI",
@@ -70,8 +82,67 @@ A solid, economical MINI with good performance and low running costs.
 
 🚚 Delivery available
 📩 Message to reserve or arrange viewing. 🚗`,
-    img: "images/2010-mini-cooper-silver.jpg"  // ← replace with your actual uploaded filename
-  },
+    img: "images/2010-mini-cooper-silver.jpg"  // ← make sure this file exists in your images/ folder
+  }
 
-  // Add more cars...
+  // Add more real cars here in the same format when ready
 ];
+
+const carGrid = document.getElementById('carGrid');
+const sortSelect = document.getElementById('sortSelect');
+
+// Function to render cars
+function renderCars(carList) {
+  carGrid.innerHTML = ''; // Clear existing cards
+
+  if (carList.length === 0) {
+    carGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; padding:3rem; color:#666;">No cars found.</p>';
+    return;
+  }
+
+  carList.forEach((car, index) => {
+    const card = document.createElement('div');
+    card.className = 'car-card';
+    card.innerHTML = `
+      <img src="${car.img}" alt="${car.make} ${car.model} ${car.year} ${car.color || ''}">
+      <div class="car-info">
+        <h3>${car.make} ${car.model} ${car.year}</h3>
+        <p class="price">${car.priceDisplay || '£' + car.price.toLocaleString()}</p>
+        <div class="car-details">
+          <span>${car.mileage.toLocaleString()} ${car.mileageUnit || 'miles'}</span>
+          <span>${car.transmission || 'N/A'} • ${car.fuel || 'N/A'}</span>
+          <span>${car.color || 'N/A'}</span>
+        </div>
+        <p class="car-desc">${car.desc.substring(0, 120)}...</p> <!-- short preview -->
+        <div class="btn-group">
+          <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
+          <a href="https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay)}" 
+             class="btn btn-secondary" target="_blank">Contact</a>
+        </div>
+      </div>
+    `;
+    carGrid.appendChild(card);
+  });
+}
+
+// Sort function
+function sortCars() {
+  const value = sortSelect.value;
+  let sorted = [...cars];
+
+  if (value === 'price-asc') {
+    sorted.sort((a, b) => a.price - b.price);
+  } else if (value === 'price-desc') {
+    sorted.sort((a, b) => b.price - a.price);
+  } else if (value === 'year-desc') {
+    sorted.sort((a, b) => b.year - a.year);
+  }
+
+  renderCars(sorted);
+}
+
+// Initial render
+renderCars(cars);
+
+// Listen for sort change
+sortSelect.addEventListener('change', sortCars);
