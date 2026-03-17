@@ -1,147 +1,32 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// Sample car data - your real Mazda B2500 added!
+const cars = [
+  {
+    make: "Mazda",
+    model: "B2500 2.5TD Pickup",
+    year: 2005,
+    price: 2500,
+    mileage: 153000,
+    desc: "Reliable and rugged Mazda B2500 pickup, perfect for work, farm, or light transport. Durable 4x4 drivetrain and manual gearbox make it ideal for all terrains and heavy-duty tasks. Crew cab (double cab) with 4 doors, seats up to 5. MOT valid until 11 February 2027. No write-offs, no theft, not imported/exported/scrapped. Viewing available, delivery on request.",
+    img: "https://images.unsplash.com/photo-1502877338535-766e3a6052c0?auto=format&fit=crop&w=800&q=80",  // Exterior front/side - replace with your photo!
+    extraImgs: [  // Optional: add more photos for a gallery later if you expand
+      "https://images.unsplash.com/photo-1502489597346-d8389a46f1a2?auto=format&fit=crop&w=800&q=80",  // Another angle
+      "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80"   // Rear or interior placeholder
+    ],
+    specs: {
+      fuel: "Diesel",
+      gearbox: "Manual",
+      drivetrain: "Four-Wheel Drive (4x4)",
+      engine: "2.5L Turbo Diesel",
+      horsepower: "~107-109 hp",
+      color: "White",
+      body: "Pickup Truck (Crew Cab / Double Cab)",
+      seats: "5 (max seating)",
+      mot: "Valid until 11 February 2027"
+    },
+    priceNote: "+ VAT"
+  },
+  // Add more cars here later, e.g.:
+  // { make: "Toyota", model: "Hilux", year: 2018, ... }
+];
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
-}
-
-header {
-  background: #1a2b4c;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.filters {
-  padding: 2rem 1rem;
-  text-align: center;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.filter-controls {
-  margin-top: 1rem;
-}
-
-.filter-controls label {
-  margin-right: 1rem;
-  font-weight: 500;
-}
-
-select {
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.car-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.car-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.car-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.car-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.car-info {
-  padding: 1.2rem;
-}
-
-.car-info h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #1a2b4c;
-}
-
-.car-details {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.8rem 0;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-.price {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #e63946;
-}
-
-.car-desc {
-  margin: 1rem 0;
-  font-size: 0.95rem;
-  color: #666;
-}
-
-.btn-group {
-  display: flex;
-  gap: 1rem;
-}
-
-.btn {
-  flex: 1;
-  padding: 0.8rem;
-  text-align: center;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.btn-primary {
-  background: #1a2b4c;
-  color: white;
-}
-
-.btn-secondary {
-  background: #457b9d;
-  color: white;
-}
-
-footer {
-  background: #1a2b4c;
-  color: white;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 2rem;
-}
-
-/* Mobile responsive */
-@media (max-width: 600px) {
-  .car-grid {
-    grid-template-columns: 1fr;
-  }
-  header h1 {
-    font-size: 2rem;
-  }
-}
+// The rest of your script.js stays the same (renderCars, sortCars, event listener)
