@@ -1,4 +1,4 @@
-// script.js - Full version with modal for "View Details"
+// script.js - Multiple images support with thumbnail carousel in modal
 
 const cars = [
   {
@@ -70,7 +70,20 @@ A solid, economical MINI with good performance and low running costs.
 
 🚚 Delivery available
 📩 Message to reserve or arrange viewing. 🚗`,
-    img: "/IMG_9287.jpeg"
+    img: "/IMG_9287.jpeg",
+    images: [
+      "/IMG_9287.jpeg",
+      "/IMG_9288.jpeg",
+      "/IMG_9289.jpeg",
+      "/IMG_9290.jpeg",
+      "/IMG_9291.jpeg",
+      "/IMG_9292.jpeg",
+      "/IMG_9293.jpeg",
+      "/IMG_9294.jpeg",
+      "/IMG_9295.jpeg",
+      "/IMG_9296.jpeg",
+      "/IMG_9297.jpeg"
+    ]
   }
   // Add more cars here later...
 ];
@@ -84,13 +97,11 @@ const modalImg = document.getElementById('modalImg');
 const modalTitle = document.getElementById('modalTitle');
 const modalFullDesc = document.getElementById('modalFullDesc');
 const modalWhatsApp = document.getElementById('modalWhatsApp');
+const thumbnails = document.getElementById('thumbnails');
 const closeBtn = document.querySelector('.close');
 
 // Close modal
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
+closeBtn.addEventListener('click', () => modal.style.display = 'none');
 modal.addEventListener('click', (e) => {
   if (e.target === modal) modal.style.display = 'none';
 });
@@ -128,19 +139,34 @@ function renderCars(carList) {
     carGrid.appendChild(card);
   });
 
-  // Attach listeners to newly created buttons
+  // Attach click listeners to View Details buttons
   document.querySelectorAll('.view-details').forEach(btn => {
     btn.addEventListener('click', () => {
       const index = btn.dataset.index;
-      const car = carList[index]; // Use displayed list (sorted if applicable)
+      const car = carList[index];
 
       modalTitle.textContent = `${car.make} ${car.model} ${car.year} – ${car.priceDisplay}`;
       modalImg.src = car.img;
-      modalImg.alt = `${car.make} ${car.model} ${car.year}`;
       modalFullDesc.textContent = car.desc;
 
       modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Full details please')}`;
-      modalWhatsApp.textContent = `Contact about ${car.make} ${car.model}`;
+
+      // Build thumbnails
+      thumbnails.innerHTML = '';
+      if (car.images && car.images.length > 0) {
+        car.images.forEach((imgSrc, i) => {
+          const thumb = document.createElement('img');
+          thumb.src = imgSrc;
+          thumb.alt = `Photo ${i + 1}`;
+          thumb.className = (i === 0) ? 'active' : '';
+          thumb.onclick = () => {
+            modalImg.src = imgSrc;
+            thumbnails.querySelectorAll('img').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+          };
+          thumbnails.appendChild(thumb);
+        });
+      }
 
       modal.style.display = 'flex';
     });
