@@ -1,12 +1,12 @@
-// script.js - Full working version with MINI Cooper and your real photo
+// script.js - Full version with modal for "View Details"
 
 const cars = [
   {
     make: "MINI",
     model: "Cooper",
     year: 2010,
-    price: 3989,              // number for sorting/filtering
-    priceDisplay: "£3,989",   // formatted string for display
+    price: 3989,
+    priceDisplay: "£3,989",
     mileage: 83386,
     mileageUnit: "miles",
     color: "Silver",
@@ -70,33 +70,34 @@ A solid, economical MINI with good performance and low running costs.
 
 🚚 Delivery available
 📩 Message to reserve or arrange viewing. 🚗`,
-    img: "/IMG_9287.jpeg"     // ← your chosen photo from the repo root
+    img: "/IMG_9287.jpeg"
   }
-
-  // You can add more cars here later in the same format
-  // Example:
-  // {
-  //   make: "Other Brand",
-  //   model: "Model",
-  //   year: 2020,
-  //   price: 15000,
-  //   priceDisplay: "£15,000",
-  //   mileage: 50000,
-  //   mileageUnit: "miles",
-  //   color: "Black",
-  //   fuel: "Petrol",
-  //   transmission: "Manual",
-  //   img: "/IMG_9290.jpeg",
-  //   desc: "Description here..."
-  // }
+  // Add more cars here later...
 ];
 
 const carGrid = document.getElementById('carGrid');
 const sortSelect = document.getElementById('sortSelect');
 
-// Function to render cars
+// Modal elements
+const modal = document.getElementById('carModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalFullDesc = document.getElementById('modalFullDesc');
+const modalWhatsApp = document.getElementById('modalWhatsApp');
+const closeBtn = document.querySelector('.close');
+
+// Close modal
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) modal.style.display = 'none';
+});
+
+// Render cars function
 function renderCars(carList) {
-  carGrid.innerHTML = ''; // Clear existing cards
+  carGrid.innerHTML = '';
 
   if (carList.length === 0) {
     carGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; padding:3rem; color:#666;">No cars found.</p>';
@@ -116,7 +117,7 @@ function renderCars(carList) {
           <span>${car.transmission || 'N/A'} • ${car.fuel || 'N/A'}</span>
           <span>${car.color || 'N/A'}</span>
         </div>
-        <p class="car-desc">${car.desc.substring(0, 120)}...</p> <!-- short preview -->
+        <p class="car-desc">${car.desc.substring(0, 120)}...</p>
         <div class="btn-group">
           <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
           <a href="https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay)}" 
@@ -125,6 +126,24 @@ function renderCars(carList) {
       </div>
     `;
     carGrid.appendChild(card);
+  });
+
+  // Attach listeners to newly created buttons
+  document.querySelectorAll('.view-details').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const index = btn.dataset.index;
+      const car = carList[index]; // Use displayed list (sorted if applicable)
+
+      modalTitle.textContent = `${car.make} ${car.model} ${car.year} – ${car.priceDisplay}`;
+      modalImg.src = car.img;
+      modalImg.alt = `${car.make} ${car.model} ${car.year}`;
+      modalFullDesc.textContent = car.desc;
+
+      modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Full details please')}`;
+      modalWhatsApp.textContent = `Contact about ${car.make} ${car.model}`;
+
+      modal.style.display = 'flex';
+    });
   });
 }
 
