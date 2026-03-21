@@ -27,11 +27,11 @@
     </section>
 
     <section class="car-grid" id="carGrid">
-      <!-- Cars will be added here via JS -->
+      <!-- Cars added via JS -->
     </section>
   </main>
 
-  <!-- Modal for full car details with image thumbnails -->
+  <!-- Modal for full details + payment options -->
   <div id="carModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -39,7 +39,17 @@
       <div id="thumbnails" class="thumbnails"></div>
       <h2 id="modalTitle"></h2>
       <p id="modalFullDesc"></p>
-      <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank">Contact via WhatsApp</a>
+
+      <div class="payment-options" style="margin-top:2rem; padding:1rem; background:#f8f9fa; border-radius:8px;">
+        <h3>Secure Your Car</h3>
+        <p>Reservation fee is fully refundable after viewing/test drive or delivery. Pay securely via card.</p>
+        <button id="reserveViewBtn" class="btn btn-primary" style="width:100%; margin:0.5rem 0; font-size:1.1rem;">Reserve for Viewing & Test Drive (£300)</button>
+        <button id="reserveDeliveryBtn" class="btn btn-primary" style="width:100%; margin:0.5rem 0; font-size:1.1rem;">Reserve for Delivery & Test Drive (£500)</button>
+        <button id="buyNowBtn" class="btn btn-primary" style="width:100%; margin:0.5rem 0; background:#e63946; font-size:1.1rem;">Buy Now - Full Payment (£3,989)</button>
+        <p style="margin-top:1rem; font-size:0.9rem; text-align:center;">Or pay via our secure link: <a href="https://flutterwave.com/pay/mixamautos" target="_blank">Flutterwave Payment Page</a></p>
+      </div>
+
+      <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank" style="margin-top:1rem;">Contact via WhatsApp</a>
     </div>
   </div>
 
@@ -47,6 +57,8 @@
     <p>&copy; 2026 Mixam's Autos. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
   </footer>
 
+  <!-- Flutterwave Inline SDK -->
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
