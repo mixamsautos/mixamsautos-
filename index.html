@@ -31,7 +31,7 @@
     </section>
   </main>
 
-  <!-- Modal for View Details -->
+  <!-- Modal for full details + payment section -->
   <div id="carModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -39,12 +39,34 @@
       <div id="thumbnails" class="thumbnails"></div>
       <h2 id="modalTitle"></h2>
       <p id="modalFullDesc"></p>
-      <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank" style="margin-top:1.5rem; display:block; text-align:center;">Send Message via WhatsApp</a>
+
+      <!-- Secure This Car payment section -->
+      <div class="payment-section" style="margin-top:2rem; padding:1.5rem; background:#f8f9fa; border-radius:8px; text-align:center;">
+        <h3 style="margin-bottom:1rem;">Secure This Car</h3>
+        <p style="margin-bottom:1.5rem; font-size:1rem; color:#444;">
+          Pay a refundable reservation fee to hold the vehicle while you arrange viewing, test drive, delivery or full purchase.<br>
+          Fee is fully refundable.<br><br>
+          Choose the option that suits you:
+        </p>
+        <ul style="list-style:none; padding:0; margin-bottom:1.5rem; text-align:left; max-width:400px; margin:0 auto;">
+          <li style="margin:0.8rem 0; font-size:1rem;">• £50 refundable booking fee – reserve the car for viewing 🚗</li>
+          <li style="margin:0.8rem 0; font-size:1rem;">• £100 refundable reservation fee – arrange delivery or test drive 📍</li>
+          <li style="margin:0.8rem 0; font-size:1rem;">• Deposit or full payment – secure the vehicle immediately ✅</li>
+        </ul>
+        <p style="margin-bottom:1.5rem; font-size:0.95rem; color:#555;">
+          After payment, send the transaction reference via WhatsApp or email for confirmation and next steps.
+        </p>
+        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-primary" style="display:block; width:100%; padding:1.2rem; font-size:1.2rem;">
+          Pay Now & Secure Car
+        </a>
+      </div>
+
+      <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank" style="margin-top:1.5rem; display:block; text-align:center;">Contact via WhatsApp</a>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2026 Mixam's Autos. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
+    <p>&copy; 2024 Mixam's Autos. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
   </footer>
 
   <script src="script.js"></script>
