@@ -1,29 +1,25 @@
-// script.js - Car card with price savings badge and WhatsApp message button
+// script.js - Car with Great Deal badge + working View Details modal
 
-document.addEventListener('DOMContentLoaded', () => {
-  const carGrid = document.getElementById('carGrid');
-  const sortSelect = document.getElementById('sortSelect');
-
-  const cars = [
-    {
-      make: "MINI",
-      model: "Cooper",
-      year: 2010,
-      price: 3989,
-      priceDisplay: "£3,989",
-      marketPrice: 4726, // ← Set this to calculate savings (e.g. market value £4,726)
-      mileage: 83386,
-      mileageUnit: "miles",
-      color: "Silver",
-      fuel: "Petrol",
-      transmission: "Automatic",
-      engine: "1.6L",
-      hp: 122,
-      mpg: 42,
-      body: "Hatchback",
-      doors: 3,
-      seats: 4,
-      desc: `Clean and reliable automatic hatchback with a smooth drive and great fuel economy. Perfect for city use or as a first car, with a stylish MINI design and comfortable interior.
+const cars = [
+  {
+    make: "MINI",
+    model: "Cooper",
+    year: 2010,
+    price: 3989,
+    priceDisplay: "£3,989",
+    marketPrice: 4726, // change this to your actual market value to calculate savings
+    mileage: 83386,
+    mileageUnit: "miles",
+    color: "Silver",
+    fuel: "Petrol",
+    transmission: "Automatic",
+    engine: "1.6L",
+    hp: 122,
+    mpg: 42,
+    body: "Hatchback",
+    doors: 3,
+    seats: 4,
+    desc: `Clean and reliable automatic hatchback with a smooth drive and great fuel economy. Perfect for city use or as a first car, with a stylish MINI design and comfortable interior.
 
 Key Details
 • Price: £3,989
@@ -75,22 +71,39 @@ A solid, economical MINI with good performance and low running costs.
 
 🚚 Delivery available
 📩 Message to reserve or arrange viewing. 🚗`,
-      img: "/IMG_9287.jpeg",
-      images: [
-        "/IMG_9287.jpeg",
-        "/IMG_9288.jpeg",
-        "/IMG_9289.jpeg",
-        "/IMG_9290.jpeg",
-        "/IMG_9291.jpeg",
-        "/IMG_9292.jpeg",
-        "/IMG_9293.jpeg",
-        "/IMG_9294.jpeg",
-        "/IMG_9295.jpeg",
-        "/IMG_9296.jpeg",
-        "/IMG_9297.jpeg"
-      ]
-    }
-  ];
+    img: "/IMG_9287.jpeg",
+    images: [
+      "/IMG_9287.jpeg",
+      "/IMG_9288.jpeg",
+      "/IMG_9289.jpeg",
+      "/IMG_9290.jpeg",
+      "/IMG_9291.jpeg",
+      "/IMG_9292.jpeg",
+      "/IMG_9293.jpeg",
+      "/IMG_9294.jpeg",
+      "/IMG_9295.jpeg",
+      "/IMG_9296.jpeg",
+      "/IMG_9297.jpeg"
+    ]
+  }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carGrid = document.getElementById('carGrid');
+  const sortSelect = document.getElementById('sortSelect');
+  const modal = document.getElementById('carModal');
+  const modalImg = document.getElementById('modalImg');
+  const thumbnails = document.getElementById('thumbnails');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalFullDesc = document.getElementById('modalFullDesc');
+  const modalWhatsApp = document.getElementById('modalWhatsApp');
+  const closeBtn = document.querySelector('.close');
+
+  // Close modal
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
 
   function renderCars(carList) {
     carGrid.innerHTML = '';
@@ -109,9 +122,9 @@ A solid, economical MINI with good performance and low running costs.
       card.innerHTML = `
         <div class="price-badge">
           <span class="deal">Great Deal</span>
-          ${savingsText ? `<span class="savings">${savingsText}</span>` : ''}
+          ${savingsText ? `<span class="savings">£${savingsText}</span>` : ''}
         </div>
-        <img src="${car.img}" alt="${car.make} ${car.model} ${car.year} ${car.color || ''}">
+        <img src="${car.img}" alt="${car.make} ${car.model} ${car.year}">
         <div class="car-info">
           <h3>${car.make} ${car.model} ${car.year}</h3>
           <p class="price">${car.priceDisplay}</p>
@@ -130,6 +143,31 @@ A solid, economical MINI with good performance and low running costs.
       `;
       carGrid.appendChild(card);
     });
+
+    // View Details modal logic
+    document.querySelectorAll('.view-details').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const index = btn.dataset.index;
+        const car = carList[index];
+
+        modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
+        modalImg.src = car.img;
+        modalFullDesc.textContent = car.desc;
+        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Great Deal')}`;
+
+        // Thumbnails
+        thumbnails.innerHTML = '';
+        car.images.forEach(src => {
+          const thumb = document.createElement('img');
+          thumb.src = src;
+          thumb.alt = "Thumbnail";
+          thumb.onclick = () => modalImg.src = src;
+          thumbnails.appendChild(thumb);
+        });
+
+        modal.style.display = 'flex';
+      });
+    });
   }
 
   function sortCars() {
@@ -141,7 +179,6 @@ A solid, economical MINI with good performance and low running costs.
     renderCars(sorted);
   }
 
-  // Initial render
   renderCars(cars);
   sortSelect.addEventListener('change', sortCars);
 });
