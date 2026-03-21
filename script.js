@@ -1,4 +1,4 @@
-// script.js - Car displays + View Details modal with payment link
+// script.js - Car displays + View Details modal with Secure This Car section
 
 const cars = [
   {
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
         modalImg.src = car.img;
         modalFullDesc.textContent = car.desc;
-        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Ready to pay reservation')}`;
+        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Ready to secure')}`;
 
         // Build thumbnails
         thumbnails.innerHTML = '';
