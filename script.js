@@ -1,4 +1,4 @@
-// script.js - With Flutterwave Inline for reservation/full payment
+// script.js - With payment link integration
 
 const cars = [
   {
@@ -98,15 +98,6 @@ const modalTitle = document.getElementById('modalTitle');
 const modalFullDesc = document.getElementById('modalFullDesc');
 const modalWhatsApp = document.getElementById('modalWhatsApp');
 const closeBtn = document.querySelector('.close');
-const reserveViewBtn = document.getElementById('reserveViewBtn');
-const reserveDeliveryBtn = document.getElementById('reserveDeliveryBtn');
-const buyNowBtn = document.getElementById('buyNowBtn');
-
-// Flutterwave public key - REPLACE WITH YOUR REAL ONE!
-const FLW_PUBLIC_KEY = "FLWPUBK-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // ← Your public key here (test or live)
-
-// Current car
-let currentCar = null;
 
 // Close modal
 closeBtn.addEventListener('click', () => modal.style.display = 'none');
@@ -145,24 +136,23 @@ function renderCars(carList) {
     carGrid.appendChild(card);
   });
 
-  // View Details listener
   document.querySelectorAll('.view-details').forEach(btn => {
     btn.addEventListener('click', () => {
       const index = btn.dataset.index;
-      currentCar = carList[index];
+      const car = carList[index];
 
-      modalTitle.textContent = `${currentCar.make} ${currentCar.model} ${currentCar.year} – ${currentCar.priceDisplay}`;
-      modalImg.src = currentCar.img;
-      modalFullDesc.textContent = currentCar.desc;
+      modalTitle.textContent = `${car.make} ${car.model} ${car.year} – ${car.priceDisplay}`;
+      modalImg.src = car.img;
+      modalFullDesc.textContent = car.desc;
 
-      modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(currentCar.make + ' ' + car.model + ' ' + car.year + ' - ' + currentCar.priceDisplay)}`;
+      modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Ready to pay reservation')}`;
 
       // Thumbnails
       thumbnails.innerHTML = '';
-      currentCar.images.forEach((src, i) => {
+      car.images.forEach((src) => {
         const thumb = document.createElement('img');
         thumb.src = src;
-        thumb.alt = `Photo ${i+1}`;
+        thumb.alt = "Car photo";
         thumb.onclick = () => modalImg.src = src;
         thumbnails.appendChild(thumb);
       });
@@ -172,61 +162,16 @@ function renderCars(carList) {
   });
 }
 
-// Sort
+// Sort function
 function sortCars() {
   let sorted = [...cars];
-  const val = sortSelect.value;
-  if (val === 'price-asc') sorted.sort((a,b) => a.price - b.price);
-  if (val === 'price-desc') sorted.sort((a,b) => b.price - a.price);
-  if (val === 'year-desc') sorted.sort((a,b) => b.year - a.year);
+  const value = sortSelect.value;
+  if (value === 'price-asc') sorted.sort((a, b) => a.price - b.price);
+  else if (value === 'price-desc') sorted.sort((a, b) => b.price - a.price);
+  else if (value === 'year-desc') sorted.sort((a, b) => b.year - a.year);
   renderCars(sorted);
 }
 
-// Flutterwave payment function
-function makePayment(amount, description, type = 'reservation') {
-  if (!currentCar) return alert("No car selected.");
-
-  const txRef = `mixamautos-${currentCar.make.toLowerCase()}-${Date.now()}`;
-
-  FlutterwaveCheckout({
-    public_key: FLW_PUBLIC_KEY,
-    tx_ref: txRef,
-    amount: amount,
-    currency: "GBP",
-    payment_options: "card, banktransfer, ussd, mobilemoney", // adjust as per your setup
-    redirect_url: window.location.href, // refresh after payment or change to success page
-    customer: {
-      email: prompt("Your email for receipt:") || "customer@example.com",
-      phone_number: prompt("Your phone number:") || "",
-      name: prompt("Your full name:") || "Customer",
-    },
-    customizations: {
-      title: `${type === 'full' ? 'Full Purchase' : 'Reservation'} - ${currentCar.make} ${currentCar.model} ${currentCar.year}`,
-      description: description,
-      logo: window.location.origin + currentCar.img
-    },
-    callback: (response) => {
-      console.log(response);
-      if (response.status === "successful") {
-        alert(`Payment successful! Ref: ${response.tx_ref}\nWe'll confirm your reservation/purchase shortly. Fee is refundable after viewing/delivery.`);
-        // Optional: mark as reserved in localStorage
-        localStorage.setItem(`reserved_${txRef}`, JSON.stringify({ car: `${currentCar.make} ${currentCar.model}`, amount, date: new Date().toISOString() }));
-      } else {
-        alert("Payment failed or cancelled.");
-      }
-      modal.style.display = 'none';
-    },
-    onclose: () => {
-      // User closed popup
-    }
-  });
-}
-
-// Button listeners
-reserveViewBtn.onclick = () => makePayment(300, "Refundable £300 reservation for viewing & test drive");
-reserveDeliveryBtn.onclick = () => makePayment(500, "Refundable £500 reservation for delivery & test drive");
-buyNowBtn.onclick = () => makePayment(currentCar.price, "Full payment for vehicle purchase", 'full');
-
-// Initial
+// Initial render
 renderCars(cars);
 sortSelect.addEventListener('change', sortCars);
