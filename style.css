@@ -61,7 +61,6 @@ select {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
 }
 
 .car-card:hover {
@@ -107,12 +106,11 @@ select {
 
 .btn-group {
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 1rem;
 }
 
 .btn {
+  flex: 1;
   padding: 0.8rem;
   text-align: center;
   border-radius: 6px;
@@ -127,41 +125,9 @@ select {
   color: white;
 }
 
-.btn-message {
-  background: #25D366;
+.btn-secondary {
+  background: #457b9d;
   color: white;
-  border-radius: 30px;
-  padding: 1rem;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.price-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #28a745;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  text-align: center;
-  z-index: 10;
-}
-
-.price-badge .deal {
-  display: block;
-  font-size: 1.1rem;
-}
-
-.price-badge .savings {
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
 }
 
 footer {
@@ -236,6 +202,20 @@ footer {
 
 .thumbnails img:hover {
   border: 2px solid #457b9d;
+}
+
+/* Payment section */
+.payment-section h3 {
+  color: #1a2b4c;
+}
+
+.payment-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.payment-section li {
+  margin: 0.8rem 0;
 }
 
 /* Mobile responsive */
