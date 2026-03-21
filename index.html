@@ -40,16 +40,20 @@
       <h2 id="modalTitle"></h2>
       <p id="modalFullDesc"></p>
 
-      <div class="payment-options" style="margin-top:2rem; padding:1rem; background:#f8f9fa; border-radius:8px;">
-        <h3>Secure Your Car</h3>
-        <p>Reservation fee is fully refundable after viewing/test drive or delivery. Pay securely via card.</p>
-        <button id="reserveViewBtn" class="btn btn-primary" style="width:100%; margin:0.5rem 0; font-size:1.1rem;">Reserve for Viewing & Test Drive (£300)</button>
-        <button id="reserveDeliveryBtn" class="btn btn-primary" style="width:100%; margin:0.5rem 0; font-size:1.1rem;">Reserve for Delivery & Test Drive (£500)</button>
-        <button id="buyNowBtn" class="btn btn-primary" style="width:100%; margin:0.5rem 0; background:#e63946; font-size:1.1rem;">Buy Now - Full Payment (£3,989)</button>
-        <p style="margin-top:1rem; font-size:0.9rem; text-align:center;">Or pay via our secure link: <a href="https://flutterwave.com/pay/mixamautos" target="_blank">Flutterwave Payment Page</a></p>
+      <div class="payment-options" style="margin-top:2rem; padding:1.5rem; background:#f8f9fa; border-radius:8px; text-align:center;">
+        <h3>Secure This Car Now</h3>
+        <p style="margin-bottom:1.5rem;">Pay a refundable reservation fee to hold the car while you arrange viewing, test drive, or delivery. The fee is fully refundable. Enter any amount on the payment page (suggested: £300 for viewing, £500 for delivery, or full £3,989 to purchase).</p>
+        
+        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-primary" style="display:block; width:100%; padding:1.2rem; font-size:1.2rem; margin:1rem 0;">
+          Pay Reservation / Secure Car Now
+        </a>
+        
+        <p style="font-size:0.9rem; color:#555; margin-top:1rem;">
+          After payment, message us via WhatsApp with your payment reference so we can confirm and arrange next steps (viewing, delivery, or refund process).
+        </p>
       </div>
 
-      <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank" style="margin-top:1rem;">Contact via WhatsApp</a>
+      <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank" style="margin-top:1.5rem; display:block;">Contact via WhatsApp for Questions</a>
     </div>
   </div>
 
@@ -57,8 +61,6 @@
     <p>&copy; 2026 Mixam's Autos. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
   </footer>
 
-  <!-- Flutterwave Inline SDK -->
-  <script src="https://checkout.flutterwave.com/v3.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
