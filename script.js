@@ -1,4 +1,4 @@
-// script.js - Car displays + View Details modal with thumbnails
+// script.js - Car displays + View Details modal with payment link
 
 const cars = [
   {
@@ -145,17 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
         modalImg.src = car.img;
         modalFullDesc.textContent = car.desc;
-        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Full details please')}`;
+        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Ready to pay reservation')}`;
 
         // Build thumbnails
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
           const img = document.createElement('img');
           img.src = src;
+          img.alt = "Car photo";
           img.style.width = '60px';
           img.style.height = '60px';
           img.style.objectFit = 'cover';
           img.style.cursor = 'pointer';
+          img.style.borderRadius = '6px';
           img.onclick = () => modalImg.src = src;
           thumbnails.appendChild(img);
         });
