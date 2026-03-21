@@ -1,4 +1,4 @@
-// script.js - Car with Great Deal badge + working View Details modal
+// script.js - Car display + View Details modal with Secure This Car payment
 
 const cars = [
   {
@@ -7,7 +7,6 @@ const cars = [
     year: 2010,
     price: 3989,
     priceDisplay: "£3,989",
-    marketPrice: 4726, // change this to your actual market value to calculate savings
     mileage: 83386,
     mileageUnit: "miles",
     color: "Silver",
@@ -114,17 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     carList.forEach((car, index) => {
-      const savings = car.marketPrice ? car.marketPrice - car.price : 0;
-      const savingsText = savings > 0 ? `${savings.toLocaleString()} below` : '';
-
       const card = document.createElement('div');
       card.className = 'car-card';
       card.innerHTML = `
-        <div class="price-badge">
-          <span class="deal">Great Deal</span>
-          ${savingsText ? `<span class="savings">£${savingsText}</span>` : ''}
-        </div>
-        <img src="${car.img}" alt="${car.make} ${car.model} ${car.year}">
+        <img src="${car.img}" alt="${car.make} ${car.model} ${car.year} ${car.color || ''}">
         <div class="car-info">
           <h3>${car.make} ${car.model} ${car.year}</h3>
           <p class="price">${car.priceDisplay}</p>
@@ -136,15 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="car-desc">${car.desc.substring(0, 120)}...</p>
           <div class="btn-group">
             <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
-            <a href="https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Great Deal')}" 
-               class="btn btn-message" target="_blank">Send Message</a>
+            <a href="https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay)}" 
+               class="btn btn-secondary" target="_blank">Contact</a>
           </div>
         </div>
       `;
       carGrid.appendChild(card);
     });
 
-    // View Details modal logic
+    // Attach View Details listeners
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = btn.dataset.index;
@@ -153,16 +145,21 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
         modalImg.src = car.img;
         modalFullDesc.textContent = car.desc;
-        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Great Deal')}`;
+        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Ready to pay reservation')}`;
 
-        // Thumbnails
+        // Build thumbnails
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
-          const thumb = document.createElement('img');
-          thumb.src = src;
-          thumb.alt = "Thumbnail";
-          thumb.onclick = () => modalImg.src = src;
-          thumbnails.appendChild(thumb);
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = "Car photo";
+          img.style.width = '60px';
+          img.style.height = '60px';
+          img.style.objectFit = 'cover';
+          img.style.cursor = 'pointer';
+          img.style.borderRadius = '6px';
+          img.onclick = () => modalImg.src = src;
+          thumbnails.appendChild(img);
         });
 
         modal.style.display = 'flex';
@@ -179,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCars(sorted);
   }
 
+  // Initial render
   renderCars(cars);
   sortSelect.addEventListener('change', sortCars);
 });
