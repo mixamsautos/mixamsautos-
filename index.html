@@ -27,9 +27,21 @@
     </section>
 
     <section class="car-grid" id="carGrid">
-      <!-- Cars will be added here via JS -->
+      <!-- Cars added via JS -->
     </section>
   </main>
+
+  <!-- Modal popup for full details -->
+  <div id="carModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" style="position:absolute; top:10px; right:20px; font-size:2.5rem; cursor:pointer; color:#aaa;">&times;</span>
+      <img id="modalImg" src="" alt="Car Photo" style="width:100%; max-height:350px; object-fit:contain; border-radius:8px; margin-bottom:1rem;">
+      <div id="thumbnails" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:1.5rem;"></div>
+      <h2 id="modalTitle"></h2>
+      <p id="modalFullDesc" style="white-space: pre-line; line-height:1.6;"></p>
+      <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank" style="display:block; text-align:center; margin-top:1.5rem;">Contact via WhatsApp</a>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2026 Mixam's Autos. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
