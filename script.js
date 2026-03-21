@@ -1,4 +1,4 @@
-// script.js - Car display + View Details modal with Secure This Car payment
+// script.js - (your current working version – no change required for payment buttons)
 
 const cars = [
   {
@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalWhatsApp = document.getElementById('modalWhatsApp');
   const closeBtn = document.querySelector('.close');
 
-  // Close modal
   closeBtn.addEventListener('click', () => modal.style.display = 'none');
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.style.display = 'none';
@@ -136,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
       carGrid.appendChild(card);
     });
 
-    // Attach View Details listeners
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = btn.dataset.index;
@@ -145,9 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
         modalImg.src = car.img;
         modalFullDesc.textContent = car.desc;
-        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Ready to pay reservation')}`;
+        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay)}`;
 
-        // Build thumbnails
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
           const img = document.createElement('img');
@@ -176,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCars(sorted);
   }
 
-  // Initial render
   renderCars(cars);
   sortSelect.addEventListener('change', sortCars);
 });
