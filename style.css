@@ -107,8 +107,9 @@ select {
 
 .btn-group {
   display: flex;
-  gap: 1rem;
   flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
 }
 
 .btn {
@@ -126,17 +127,12 @@ select {
   color: white;
 }
 
-.btn-secondary {
-  background: #457b9d;
-  color: white;
-}
-
 .btn-message {
   background: #25D366;
   color: white;
-  font-size: 1.1rem;
-  padding: 1rem;
   border-radius: 30px;
+  padding: 1rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,6 +170,72 @@ footer {
   text-align: center;
   padding: 1.5rem;
   margin-top: 2rem;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  max-width: 600px;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close:hover {
+  color: #333;
+}
+
+#modalImg {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.thumbnails img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.2s;
+}
+
+.thumbnails img:hover {
+  border: 2px solid #457b9d;
 }
 
 /* Mobile responsive */
