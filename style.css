@@ -204,20 +204,6 @@ footer {
   border: 2px solid #457b9d;
 }
 
-/* Payment section */
-.payment-section h3 {
-  color: #1a2b4c;
-}
-
-.payment-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.payment-section li {
-  margin: 0.8rem 0;
-}
-
 /* Mobile responsive */
 @media (max-width: 600px) {
   .car-grid {
