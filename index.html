@@ -31,7 +31,7 @@
     </section>
   </main>
 
-  <!-- Modal popup for full details -->
+  <!-- Modal for full details + payment link -->
   <div id="carModal" class="modal" style="display:none;">
     <div class="modal-content">
       <span class="close" style="position:absolute; top:10px; right:20px; font-size:2.5rem; cursor:pointer; color:#aaa;">&times;</span>
@@ -39,12 +39,28 @@
       <div id="thumbnails" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:1.5rem;"></div>
       <h2 id="modalTitle"></h2>
       <p id="modalFullDesc" style="white-space: pre-line; line-height:1.6;"></p>
+
+      <!-- Payment / Reservation Section -->
+      <div class="payment-section" style="margin-top:2rem; padding:1.5rem; background:#f8f9fa; border-radius:8px; text-align:center;">
+        <h3 style="margin-bottom:1rem;">Secure This Car</h3>
+        <p style="margin-bottom:1.5rem; font-size:1rem; color:#555;">
+          Pay a refundable reservation fee to hold the car while you arrange viewing, test drive or delivery.<br>
+          <strong>Fee is fully refundable.</strong> Enter any amount on the payment page (suggested: £300 for viewing, £500 for delivery, or full price to purchase).
+        </p>
+        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-primary" style="display:block; width:100%; padding:1.2rem; font-size:1.2rem; margin-bottom:1rem;">
+          Pay Now & Secure Car
+        </a>
+        <p style="font-size:0.9rem; color:#666;">
+          After payment, send us the transaction reference via WhatsApp for confirmation and next steps.
+        </p>
+      </div>
+
       <a id="modalWhatsApp" href="#" class="btn btn-secondary" target="_blank" style="display:block; text-align:center; margin-top:1.5rem;">Contact via WhatsApp</a>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2026 Mixam's Autos. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
+    <p>&copy; 2024 Mixam's Autos. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
   </footer>
 
   <script src="script.js"></script>
