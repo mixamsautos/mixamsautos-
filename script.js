@@ -1,4 +1,4 @@
-// script.js - Ensures car displays with DOMContentLoaded
+// script.js - Car displays + View Details modal with thumbnails
 
 const cars = [
   {
@@ -70,18 +70,39 @@ A solid, economical MINI with good performance and low running costs.
 
 🚚 Delivery available
 📩 Message to reserve or arrange viewing. 🚗`,
-    img: "/IMG_9287.jpeg"
+    img: "/IMG_9287.jpeg",
+    images: [
+      "/IMG_9287.jpeg",
+      "/IMG_9288.jpeg",
+      "/IMG_9289.jpeg",
+      "/IMG_9290.jpeg",
+      "/IMG_9291.jpeg",
+      "/IMG_9292.jpeg",
+      "/IMG_9293.jpeg",
+      "/IMG_9294.jpeg",
+      "/IMG_9295.jpeg",
+      "/IMG_9296.jpeg",
+      "/IMG_9297.jpeg"
+    ]
   }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
   const carGrid = document.getElementById('carGrid');
   const sortSelect = document.getElementById('sortSelect');
+  const modal = document.getElementById('carModal');
+  const modalImg = document.getElementById('modalImg');
+  const thumbnails = document.getElementById('thumbnails');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalFullDesc = document.getElementById('modalFullDesc');
+  const modalWhatsApp = document.getElementById('modalWhatsApp');
+  const closeBtn = document.querySelector('.close');
 
-  if (!carGrid) {
-    console.error('carGrid element not found!');
-    return;
-  }
+  // Close modal
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
 
   function renderCars(carList) {
     carGrid.innerHTML = '';
@@ -114,6 +135,34 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       carGrid.appendChild(card);
     });
+
+    // Attach listeners to View Details buttons
+    document.querySelectorAll('.view-details').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const index = btn.dataset.index;
+        const car = carList[index];
+
+        modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
+        modalImg.src = car.img;
+        modalFullDesc.textContent = car.desc;
+        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay + ' - Full details please')}`;
+
+        // Build thumbnails
+        thumbnails.innerHTML = '';
+        car.images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.style.width = '60px';
+          img.style.height = '60px';
+          img.style.objectFit = 'cover';
+          img.style.cursor = 'pointer';
+          img.onclick = () => modalImg.src = src;
+          thumbnails.appendChild(img);
+        });
+
+        modal.style.display = 'flex';
+      });
+    });
   }
 
   function sortCars() {
@@ -127,7 +176,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial render
   renderCars(cars);
-
-  // Listen for sort changes
   sortSelect.addEventListener('change', sortCars);
 });
