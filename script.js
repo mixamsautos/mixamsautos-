@@ -61,7 +61,7 @@ Affordable and reliable hatchback 🔥 Perfect for a first car or daily driving,
 • Not imported or exported  
 • Not scrapped  
 
-**Warranty**  
+**Warranty*
 • 6 months warranty included ✔️  
 
 **Finance Option Available**  
