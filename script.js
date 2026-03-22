@@ -1,4 +1,4 @@
-// script.js - 3 cars + separated payment buttons
+// script.js - 3 cars with Year before Make/Model + improved description formatting
 
 const cars = [
   {
@@ -18,57 +18,59 @@ const cars = [
     body: "Hatchback",
     doors: 3,
     seats: 4,
-    desc: `Clean and reliable automatic hatchback with a smooth drive and great fuel economy. Perfect for city use or as a first car, with a stylish MINI design and comfortable interior.
+    desc: `**2010 MINI Cooper – Clean & Reliable Automatic Hatchback**
 
-Key Details
-• Price: £3,989
-• Mileage: 83,386 miles
-• Exterior colour: Silver
-• Fuel type: Petrol
-• Gearbox: Automatic
-• Drivetrain: Front-wheel drive
-• Engine: 1.6L Petrol
-• Horsepower: 122 hp
-• MPG: 42 MPG (combined)
-• ULEZ compliant: Yes
+Clean and reliable automatic hatchback with a smooth drive and great fuel economy. Perfect for city use or as a first car, with a stylish MINI design and comfortable interior.
 
-Vehicle Overview
-• Make: MINI
-• Model: Cooper
-• Year: 2010
-• Variant: 1.6 Cooper (122bhp) Hatchback Auto
-• Body type: Hatchback
-• Insurance group: 17
-• Doors: 3
-• Seats: 4
+**Key Details**  
+• Price: £3,989  
+• Mileage: 83,386 miles  
+• Exterior colour: Silver  
+• Fuel type: Petrol  
+• Gearbox: Automatic  
+• Drivetrain: Front-wheel drive  
+• Engine: 1.6L Petrol  
+• Horsepower: 122 hp  
+• MPG: 42 MPG (combined)  
+• ULEZ compliant: Yes  
 
-Fuel Economy
-• Fuel tank size: 40 L
-• City: 32 MPG
-• Highway: 55 MPG
+**Vehicle Overview**  
+• Make: MINI  
+• Model: Cooper  
+• Year: 2010  
+• Variant: 1.6 Cooper (122bhp) Hatchback Auto  
+• Body type: Hatchback  
+• Insurance group: 17  
+• Doors: 3  
+• Seats: 4  
 
-Features / Options
-• Air conditioning
-• Alloy wheels
-• Bluetooth
-• Smoker package
+**Fuel Economy**  
+• Fuel tank size: 40 L  
+• City: 32 MPG  
+• Highway: 55 MPG  
 
-History
-• Passed MOT
-• Valid from 05 December 2025 to 07 December 2026
-• No insurance write-offs
-• No theft record
-• Not imported or exported
-• Not scrapped
+**Features / Options**  
+• Air conditioning  
+• Alloy wheels  
+• Bluetooth  
+• Smoker package  
 
-Finance Option Available
-• Deposit: £700
-• Monthly payment: £180
-• Term: 20 months
+**History**  
+• Passed MOT  
+• Valid from 05 December 2025 to 07 December 2026  
+• No insurance write-offs  
+• No theft record  
+• Not imported or exported  
+• Not scrapped  
 
-A solid, economical MINI with good performance and low running costs.
+**Finance Option Available**  
+• Deposit: £700  
+• Monthly payment: £180  
+• Term: 20 months  
 
-🚚 Delivery available
+A solid, economical MINI with good performance and low running costs.  
+
+🚚 Delivery available  
 📩 Message to reserve or arrange viewing. 🚗`,
     img: "/IMG_9287.jpeg",
     images: [
@@ -103,65 +105,65 @@ A solid, economical MINI with good performance and low running costs.
     body: "Estate",
     doors: 5,
     seats: 5,
-    desc: `Premium hybrid estate combining luxury, performance, and efficiency 🔥 Smooth automatic drive with low emissions and excellent fuel economy—perfect for both city and long journeys.
+    desc: `**2016 Mercedes-Benz C-Class C350e Sport Estate Auto**
 
-Key Details
-• Price: £6,500
-• Mileage: 109,000 miles
-• Exterior colour: White
-• Fuel type: Hybrid (Petrol/Electric)
-• Gearbox: Automatic
-• Drivetrain: Rear-wheel drive
-• Engine: 2.0L Hybrid
-• Horsepower: 293 hp (combined)
-• MPG: 60 MPG (combined)
-• ULEZ compliant: Yes
+Premium hybrid estate combining luxury, performance, and efficiency 🔥 Smooth automatic drive with low emissions and excellent fuel economy—perfect for both city and long journeys.
 
-Vehicle Overview
-• Make: Mercedes-Benz
-• Model: C-Class
-• Year: 2016
-• Variant: C350e Sport Estate Auto
-• Body type: Estate
-• Insurance group: 38
-• Doors: 5
-• Seats: 5
+**Key Details**  
+• Price: £6,500  
+• Mileage: 109,000 miles  
+• Exterior colour: White  
+• Fuel type: Hybrid (Petrol/Electric)  
+• Gearbox: Automatic  
+• Drivetrain: Rear-wheel drive  
+• Engine: 2.0L Hybrid  
+• Horsepower: 293 hp (combined)  
+• MPG: 60 MPG (combined)  
+• ULEZ compliant: Yes  
 
-This vehicle is the Mercedes-Benz C-Class Estate.
+**Vehicle Overview**  
+• Make: Mercedes-Benz  
+• Model: C-Class  
+• Year: 2016  
+• Variant: C350e Sport Estate Auto  
+• Body type: Estate  
+• Insurance group: 38  
+• Doors: 5  
+• Seats: 5  
 
-Fuel Economy
-• Fuel tank size: 50 L
-• Combined: 60 MPG
-• Low CO2 emissions: 49 g/km
+**Fuel Economy**  
+• Fuel tank size: 50 L  
+• Combined: 60 MPG  
+• Low CO2 emissions: 49 g/km  
 
-Features / Options
-• Full leather interior
-• Heated seats
-• Satellite navigation
-• Reversing camera
-• Parking assist
-• Cruise control
-• Bluetooth & DAB radio
-• Climate control
-• Alloy wheels
-• Privacy glass
-• ISOFIX
+**Features / Options**  
+• Full leather interior  
+• Heated seats  
+• Satellite navigation  
+• Reversing camera  
+• Parking assist  
+• Cruise control  
+• Bluetooth & DAB radio  
+• Climate control  
+• Alloy wheels  
+• Privacy glass  
+• ISOFIX  
 
-History
-• Passed MOT
-• Valid from 25 February 2026 to 24 March 2027
-• No insurance write-offs
-• No theft record
-• Not imported or exported
-• Not scrapped
+**History**  
+• Passed MOT  
+• Valid from 25 February 2026 to 24 March 2027  
+• No insurance write-offs  
+• No theft record  
+• Not imported or exported  
+• Not scrapped  
 
-Warranty
-• 6 months warranty included ✔️
+**Warranty**  
+• 6 months warranty included ✔️  
 
-Finance Option Available
-• Deposit: £1,200
-• Monthly payment: £280
-• Term: 24 months
+**Finance Option Available**  
+• Deposit: £1,200  
+• Monthly payment: £280  
+• Term: 24 months  
 
 A high-spec hybrid estate offering luxury, practicality, and excellent efficiency.`,
     img: "/IMG_9738.jpeg",
@@ -198,60 +200,60 @@ A high-spec hybrid estate offering luxury, practicality, and excellent efficienc
     body: "Hatchback",
     doors: 5,
     seats: 5,
-    desc: `Modern, stylish, and economical hatchback 🔥 Smooth automatic drive with sporty design and great fuel efficiency. Ideal first car or daily driver.
+    desc: `**2021 Audi A1 1.0 30 TFSI Sport S Tronic Auto**
 
-Key Details
-• Price: £5,800
-• Mileage: 80,028 miles
-• Exterior colour: Black
-• Fuel type: Petrol
-• Gearbox: Automatic (S Tronic)
-• Drivetrain: Front-wheel drive
-• Engine: 1.0L Petrol
-• Horsepower: 109 hp
-• ULEZ compliant: Yes
+Modern, stylish, and economical hatchback 🔥 Smooth automatic drive with sporty design and great fuel efficiency. Ideal first car or daily driver.
 
-Vehicle Overview
-• Make: Audi
-• Model: A1
-• Year: 2021
-• Variant: 1.0 30 TFSI Sport S Tronic
-• Body type: Hatchback
-• Doors: 5
-• Seats: 5
+**Key Details**  
+• Price: £5,800  
+• Mileage: 80,028 miles  
+• Exterior colour: Black  
+• Fuel type: Petrol  
+• Gearbox: Automatic (S Tronic)  
+• Drivetrain: Front-wheel drive  
+• Engine: 1.0L Petrol  
+• Horsepower: 109 hp  
+• ULEZ compliant: Yes  
 
-This vehicle is the Audi A1.
+**Vehicle Overview**  
+• Make: Audi  
+• Model: A1  
+• Year: 2021  
+• Variant: 1.0 30 TFSI Sport S Tronic  
+• Body type: Hatchback  
+• Doors: 5  
+• Seats: 5  
 
-Performance & Efficiency
-• Fuel tank size: 40 L
-• Low CO2 emissions: 112 g/km
-• Smooth automatic gearbox
+**Performance & Efficiency**  
+• Fuel tank size: 40 L  
+• Low CO2 emissions: 112 g/km  
+• Smooth automatic gearbox  
 
-Features / Options
-• Alloy wheels
-• Parking assist
-• Cruise control
-• Bluetooth & DAB radio
-• Air conditioning
-• ISOFIX
-• AUX / USB connectivity
-• Alarm / immobiliser
+**Features / Options**  
+• Alloy wheels  
+• Parking assist  
+• Cruise control  
+• Bluetooth & DAB radio  
+• Air conditioning  
+• ISOFIX  
+• AUX / USB connectivity  
+• Alarm / immobiliser  
 
-History
-• Passed MOT
-• Valid from 03 June 2025 to 02 June 2026
-• No insurance write-offs
-• No theft record
-• Not imported or exported
-• Not scrapped
+**History**  
+• Passed MOT  
+• Valid from 03 June 2025 to 02 June 2026  
+• No insurance write-offs  
+• No theft record  
+• Not imported or exported  
+• Not scrapped  
 
-Warranty
-• 6 months warranty included ✔️
+**Warranty**  
+• 6 months warranty included ✔️  
 
-Finance Option Available
-• Deposit: £370
-• Monthly payment: £250
-• Term: 24 months
+**Finance Option Available**  
+• Deposit: £370  
+• Monthly payment: £250  
+• Term: 24 months  
 
 A modern and reliable automatic car with premium feel and low running costs.
 
@@ -284,6 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalEmail = document.getElementById('modalEmail');
   const closeBtn = document.querySelector('.close');
 
+  // Close modal
   closeBtn.addEventListener('click', () => modal.style.display = 'none');
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.style.display = 'none';
@@ -301,9 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.className = 'car-card';
       card.innerHTML = `
-        <img src="${car.img}" alt="${car.make} ${car.model} ${car.year} ${car.color || ''}">
+        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model} ${car.color || ''}">
         <div class="car-info">
-          <h3>${car.make} ${car.model} ${car.year}</h3>
+          <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
           <div class="car-details">
             <span>${car.mileage.toLocaleString()} ${car.mileageUnit}</span>
@@ -313,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="car-desc">${car.desc.substring(0, 120)}...</p>
           <div class="btn-group">
             <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
-            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!" 
+            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!" 
                class="btn btn-secondary" target="_blank">Contact</a>
           </div>
         </div>
@@ -321,16 +324,17 @@ document.addEventListener('DOMContentLoaded', () => {
       carGrid.appendChild(card);
     });
 
+    // View Details modal
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = btn.dataset.index;
         const car = carList[index];
 
-        modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
+        modalTitle.textContent = `${car.year} ${car.make} ${car.model}`;
         modalImg.src = car.img;
-        modalFullDesc.textContent = car.desc;
+        modalFullDesc.innerHTML = car.desc.replace(/\n/g, '<br>'); // Better line breaks
 
-        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
+        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
 
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
