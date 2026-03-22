@@ -3,32 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mixam's Autos - Used Cars</title>
+  <title>Mixam's Autos - Quality Used Cars UK</title>
+  <meta name="description" content="Affordable used cars UK, quality used vehicles, cheap cars for sale UK, cars with finance options, trusted car dealer UK, part exchange cars">
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <header>
-    <h1>Mixam's Autos</h1>
-    <p>Quality Used & New Vehicles – Great Deals Every Day</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Mixam's Autos</h1>
+      <h2>Drive Away With Confidence 🚗</h2>
+      <p>Quality Used & New Vehicles at Prices You’ll Love</p>
+
+      <div class="hero-features">
+        <span>✔ Trusted Cars</span>
+        <span>✔ Affordable Prices</span>
+        <span>✔ Fast & Easy Process</span>
+      </div>
+
+      <p class="hero-tagline">Great Deals Every Day 🔥</p>
+
+      <div class="hero-buttons">
+        <a href="#inventory" class="btn btn-primary">Browse Cars</a>
+        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="filters">
-      <h2>Our Inventory</h2>
-      <div class="filter-controls">
-        <label>Sort by:</label>
-        <select id="sortSelect">
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="year-desc">Newest First</option>
-        </select>
-      </div>
-    </section>
+  <!-- Why Choose Us -->
+  <section class="why-choose">
+    <h2>Why Choose Mixam's Autos?</h2>
+    <p>We make car buying simple, safe and stress-free.</p>
+    <ul>
+      <li>Carefully selected quality vehicles</li>
+      <li>Affordable prices for every budget</li>
+      <li>Friendly and honest service</li>
+      <li>Part exchange welcome</li>
+      <li>UK & worldwide delivery available 🌍</li>
+      <li>UK based trusted car dealer</li>
+    </ul>
+    <p>Your satisfaction is our priority.</p>
+  </section>
 
-    <section class="car-grid" id="carGrid"></section>
-  </main>
+  <!-- Inventory Section -->
+  <section id="inventory" class="inventory">
+    <h2>Find Your Perfect Car 🚗</h2>
+    <div class="sort-bar">
+      <label>Sort by:</label>
+      <select id="sortSelect">
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="year-desc">Newest First</option>
+      </select>
+    </div>
+    <p class="inventory-subtitle">Find great value vehicles ready to drive away today.</p>
+    <div class="car-grid" id="carGrid"></div>
+  </section>
 
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Ready to Drive?</h2>
+    <p>Great cars don’t stay long – secure yours today.</p>
+    <a href="#inventory" class="btn btn-primary">View All Cars</a>
+  </section>
+
+  <!-- Part Exchange -->
+  <section class="part-exchange">
+    <h2>Part Exchange Available 🔁</h2>
+    <p>Want to trade in your current car? We offer competitive prices and make the process quick and easy.</p>
+    <a href="mailto:mixam1autos@outlook.com?subject=Part Exchange Valuation" class="btn btn-secondary">Get Fast Valuation</a>
+  </section>
+
+  <!-- Delivery -->
+  <section class="delivery">
+    <h2>UK & Worldwide Delivery 🌍</h2>
+    <p>Safe, reliable and convenient delivery directly to your door.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch 📩</h2>
+    <p>Have questions or want to reserve a car? Our team is ready to help. Fast response guaranteed.</p>
+    <a href="mailto:mixam1autos@outlook.com" class="btn btn-primary">Send Message</a>
+  </section>
+
+  <!-- Modal (View Details) -->
   <div id="carModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
