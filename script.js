@@ -1,5 +1,5 @@
 const cars = [
-  // 1. New Peugeot 308 (from previous)
+  // 1. 2009 Peugeot 308 – £1,000 (new)
   {
     make: "Peugeot",
     model: "308",
@@ -61,7 +61,7 @@ Affordable and reliable hatchback 🔥 Perfect for a first car or daily driving,
 • Not imported or exported  
 • Not scrapped  
 
-**Warranty*
+**Warranty**  
 • 6 months warranty included ✔️  
 
 **Finance Option Available**  
@@ -70,7 +70,7 @@ Affordable and reliable hatchback 🔥 Perfect for a first car or daily driving,
 • Term: 10 months  
 
 A budget-friendly car that’s ideal for new drivers or anyone looking for a cheap, reliable runaround.`,
-    img: "/IMG_9641.jpeg",
+    img: "/IMG_9641.jpeg",  // change to your best main photo if needed
     images: [
       "/IMG_9641.jpeg", "/IMG_9642.jpeg", "/IMG_9643.jpeg", "/IMG_9644.jpeg", "/IMG_9645.jpeg",
       "/IMG_9646.jpeg", "/IMG_9647.jpeg", "/IMG_9648.jpeg", "/IMG_9649.jpeg", "/IMG_9650.jpeg",
@@ -78,7 +78,7 @@ A budget-friendly car that’s ideal for new drivers or anyone looking for a che
     ]
   },
 
-  // 2. New Land Rover Range Rover Evoque (added now)
+  // 2. 2016 Land Rover Range Rover Evoque – £5,500 (new)
   {
     make: "Land Rover",
     model: "Range Rover Evoque",
@@ -156,7 +156,7 @@ Stylish, premium SUV with great fuel economy and strong performance 🔥 A perfe
 A premium SUV with modern features, strong performance, and excellent road presence.
 
 🚚 Delivery available`,
-    img: "/IMG_9662.jpeg",  // Using one from your latest upload list
+    img: "/IMG_9662.jpeg",  // main photo – change if you prefer another
     images: [
       "/IMG_9662.jpeg", "/IMG_9661.jpeg", "/IMG_9659.jpeg", "/IMG_9675.jpeg", "/IMG_9668.jpeg",
       "/IMG_9670.jpeg", "/IMG_9664.jpeg", "/IMG_9667.jpeg", "/IMG_9666.jpeg", "/IMG_9669.jpeg",
@@ -165,8 +165,8 @@ A premium SUV with modern features, strong performance, and excellent road prese
     ]
   },
 
-  // 3. Your previous cars (add MINI, Mercedes, Audi here – copy from your old script.js if needed)
-  // Example for MINI (add the rest similarly):
+  // Add your other cars here (MINI, Mercedes, Audi, etc.)
+  // Example for MINI (copy full object from your previous script.js):
   {
     make: "MINI",
     model: "Cooper",
@@ -184,12 +184,12 @@ A premium SUV with modern features, strong performance, and excellent road prese
     body: "Hatchback",
     doors: 3,
     seats: 4,
-    desc: `**2010 MINI Cooper – Clean & Reliable Automatic Hatchback** ...`,  // full desc from before
+    desc: `**2010 MINI Cooper – Clean & Reliable Automatic Hatchback** ... (paste full desc)`,
     img: "/IMG_9287.jpeg",
     images: ["/IMG_9287.jpeg", "/IMG_9288.jpeg", /* etc */]
   },
 
-  // Add Mercedes and Audi here too...
+  // ... paste Mercedes and Audi here too
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -232,7 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="car-desc">${car.desc.substring(0, 140)}...</p>
           <div class="btn-group">
             <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
-            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20${car.year}%20${car.make}%20${car.model}" class="btn btn-secondary">Contact</a>
+            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!" 
+               class="btn btn-secondary" target="_blank">Contact</a>
           </div>
         </div>
       `;
@@ -248,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.src = car.img;
         modalFullDesc.innerHTML = car.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
 
-        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20${car.year}%20${car.make}%20${car.model}&body=Hi,%0AI%20am%20interested%20in%20${car.year}%20${car.make}%20${car.model}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
+        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
 
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
