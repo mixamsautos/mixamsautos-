@@ -1,4 +1,4 @@
-// script.js - Car display + View Details modal with separated payment buttons
+// script.js - Updated with new Mercedes-Benz listing
 
 const cars = [
   {
@@ -84,7 +84,106 @@ A solid, economical MINI with good performance and low running costs.
       "/IMG_9296.jpeg",
       "/IMG_9297.jpeg"
     ]
+  },
+
+  // New listing: 2016 Mercedes-Benz C-Class C350e Sport Estate
+  {
+    make: "Mercedes-Benz",
+    model: "C-Class",
+    year: 2016,
+    price: 6500,
+    priceDisplay: "£6,500",
+    mileage: 109000,
+    mileageUnit: "miles",
+    color: "White",
+    fuel: "Hybrid (Petrol/Electric)",
+    transmission: "Automatic",
+    engine: "2.0L",
+    hp: 293,
+    mpg: 60,
+    body: "Estate",
+    doors: 5,
+    seats: 5,
+    desc: `Premium hybrid estate combining luxury, performance, and efficiency 🔥 Smooth automatic drive with low emissions and excellent fuel economy—perfect for both city and long journeys.
+
+Key Details
+• Price: £6,500
+• Mileage: 109,000 miles
+• Exterior colour: White
+• Fuel type: Hybrid (Petrol/Electric)
+• Gearbox: Automatic
+• Drivetrain: Rear-wheel drive
+• Engine: 2.0L Hybrid
+• Horsepower: 293 hp (combined)
+• MPG: 60 MPG (combined)
+• ULEZ compliant: Yes
+
+Vehicle Overview
+• Make: Mercedes-Benz
+• Model: C-Class
+• Year: 2016
+• Variant: C350e Sport Estate Auto
+• Body type: Estate
+• Insurance group: 38
+• Doors: 5
+• Seats: 5
+
+This vehicle is the Mercedes-Benz C-Class Estate.
+
+Fuel Economy
+• Fuel tank size: 50 L
+• Combined: 60 MPG
+• Low CO2 emissions: 49 g/km
+
+Features / Options
+• Full leather interior
+• Heated seats
+• Satellite navigation
+• Reversing camera
+• Parking assist
+• Cruise control
+• Bluetooth & DAB radio
+• Climate control
+• Alloy wheels
+• Privacy glass
+• ISOFIX
+
+History
+• Passed MOT
+• Valid from 25 February 2026 to 24 March 2027
+• No insurance write-offs
+• No theft record
+• Not imported or exported
+• Not scrapped
+
+Warranty
+• 6 months warranty included ✔️
+
+Finance Option Available
+• Deposit: £1,200
+• Monthly payment: £280
+• Term: 24 months
+
+A high-spec hybrid estate offering luxury, practicality, and excellent efficiency.`,
+    img: "/IMG_9738.jpeg",  // ← Change this to your best main photo for this car
+    images: [
+      "/IMG_9738.jpeg",
+      "/IMG_9739.jpeg",
+      "/IMG_9740.jpeg",
+      "/IMG_9741.jpeg",
+      "/IMG_9742.jpeg",
+      "/IMG_9743.jpeg",
+      "/IMG_9744.jpeg",
+      "/IMG_9745.jpeg",
+      "/IMG_9746.jpeg",
+      "/IMG_9747.jpeg",
+      "/IMG_9748.jpeg",
+      "/IMG_9749.jpeg"
+      // Add or remove filenames based on which images belong to this Mercedes
+    ]
   }
+
+  // You can keep adding more cars here in the same format...
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
