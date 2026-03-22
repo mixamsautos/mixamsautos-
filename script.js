@@ -1,4 +1,4 @@
-// script.js - Car display + View Details modal with email contact only
+// script.js - Car display + View Details modal with separated payment buttons
 
 const cars = [
   {
