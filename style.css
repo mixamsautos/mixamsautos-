@@ -207,15 +207,22 @@ footer {
 /* Payment section */
 .payment-section h3 {
   color: #1a2b4c;
+  text-align: center;
+}
+
+.payment-section p {
+  text-align: center;
 }
 
 .payment-section ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 1.5rem;
 }
 
 .payment-section li {
   margin: 0.8rem 0;
+  font-size: 1rem;
 }
 
 /* Mobile */
