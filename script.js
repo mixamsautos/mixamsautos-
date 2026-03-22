@@ -1,4 +1,4 @@
-// script.js - (your current working version – no change required for payment buttons)
+// script.js - Car display + View Details modal with email contact only
 
 const cars = [
   {
@@ -95,9 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const thumbnails = document.getElementById('thumbnails');
   const modalTitle = document.getElementById('modalTitle');
   const modalFullDesc = document.getElementById('modalFullDesc');
-  const modalWhatsApp = document.getElementById('modalWhatsApp');
+  const modalEmail = document.getElementById('modalEmail');
   const closeBtn = document.querySelector('.close');
 
+  // Close modal
   closeBtn.addEventListener('click', () => modal.style.display = 'none');
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.style.display = 'none';
@@ -127,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="car-desc">${car.desc.substring(0, 120)}...</p>
           <div class="btn-group">
             <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
-            <a href="https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay)}" 
+            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!" 
                class="btn btn-secondary" target="_blank">Contact</a>
           </div>
         </div>
@@ -135,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       carGrid.appendChild(card);
     });
 
+    // View Details modal
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = btn.dataset.index;
@@ -143,8 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = `${car.make} ${car.model} ${car.year}`;
         modalImg.src = car.img;
         modalFullDesc.textContent = car.desc;
-        modalWhatsApp.href = `https://wa.me/1234567890?text=Interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year + ' - ' + car.priceDisplay)}`;
 
+        // Email button in modal
+        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
+
+        // Thumbnails
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
           const img = document.createElement('img');
