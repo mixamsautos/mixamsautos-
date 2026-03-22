@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -19,17 +15,9 @@ header {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.5px;
-}
+header h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.5rem; }
 
-header p {
-  font-size: 1.2rem;
-  opacity: 0.95;
-}
+header p { font-size: 1.2rem; opacity: 0.95; }
 
 .filters {
   padding: 1.5rem 1rem;
@@ -47,20 +35,6 @@ header p {
   border-radius: 12px;
 }
 
-.filter-controls label {
-  font-weight: 600;
-  color: #374151;
-}
-
-select {
-  padding: 0.7rem 1.2rem;
-  font-size: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  background: white;
-  cursor: pointer;
-}
-
 .car-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -76,7 +50,6 @@ select {
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
-  position: relative;
 }
 
 .car-card:hover {
@@ -90,9 +63,7 @@ select {
   object-fit: cover;
 }
 
-.car-info {
-  padding: 1.6rem;
-}
+.car-info { padding: 1.6rem; }
 
 .car-info h3 {
   font-size: 1.5rem;
@@ -148,23 +119,11 @@ select {
   font-size: 1.05rem;
 }
 
-.btn-primary {
-  background: #1d4ed8;
-  color: white;
-}
+.btn-primary { background: #1d4ed8; color: white; }
+.btn-primary:hover { background: #1e40af; }
 
-.btn-primary:hover {
-  background: #1e40af;
-}
-
-.btn-secondary {
-  background: #6b7280;
-  color: white;
-}
-
-.btn-secondary:hover {
-  background: #4b5563;
-}
+.btn-secondary { background: #6b7280; color: white; }
+.btn-secondary:hover { background: #4b5563; }
 
 .price-badge {
   position: absolute;
@@ -181,15 +140,8 @@ select {
   z-index: 10;
 }
 
-.price-badge .deal {
-  display: block;
-  font-size: 1.15rem;
-}
-
-.price-badge .savings {
-  font-size: 0.85rem;
-  opacity: 0.95;
-}
+.price-badge .deal { display: block; font-size: 1.15rem; }
+.price-badge .savings { font-size: 0.85rem; opacity: 0.95; }
 
 .modal {
   position: fixed;
@@ -208,7 +160,7 @@ select {
   padding: 2.5rem;
   border-radius: 16px;
   position: relative;
-  max-height: 90vh;
+  max-height: 88vh;
   overflow-y: auto;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
@@ -222,9 +174,7 @@ select {
   color: #9ca3af;
 }
 
-.close:hover {
-  color: #374151;
-}
+.close:hover { color: #374151; }
 
 #modalImg {
   width: 100%;
@@ -270,26 +220,41 @@ select {
   text-align: center;
 }
 
-.payment-section ul {
-  list-style: none;
-  padding: 0;
+.payment-section .btn-pay {
+  display: block;
+  width: 100%;
+  margin: 0.8rem 0;
+  padding: 1.1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
 }
 
-.payment-section li {
-  margin: 1rem 0;
-  font-size: 1.05rem;
-}
+.payment-section .booking { background: #16a34a; }
+.payment-section .reservation { background: #0891b2; }
+.payment-section .full { background: #dc2626; }
 
-.btn-pay {
-  background: #16a34a !important;
-  font-size: 1.2rem !important;
-  padding: 1.3rem !important;
-  border-radius: 12px !important;
+.payment-section .note {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 1.2rem;
+  text-align: center;
 }
 
 .btn-email {
-  background: #3b82f6 !important;
-  font-size: 1.15rem !important;
+  display: block;
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  background: #3b82f6;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 footer {
@@ -302,13 +267,7 @@ footer {
 
 /* Mobile */
 @media (max-width: 600px) {
-  .car-grid {
-    grid-template-columns: 1fr;
-  }
-  header h1 {
-    font-size: 2.2rem;
-  }
-  .car-card img {
-    height: 220px;
-  }
+  .car-grid { grid-template-columns: 1fr; }
+  header h1 { font-size: 2.2rem; }
+  .car-card img { height: 220px; }
 }
