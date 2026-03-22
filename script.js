@@ -1,7 +1,79 @@
 const cars = [
-  { year: 2010, make: "MINI", model: "Cooper", price: 3989, priceDisplay: "£3,989", mileage: 83386, color: "Silver", fuel: "Petrol", transmission: "Automatic", img: "/IMG_9287.jpeg", images: ["/IMG_9287.jpeg","/IMG_9288.jpeg","/IMG_9290.jpeg"] },
-  { year: 2016, make: "Mercedes-Benz", model: "C-Class", price: 6500, priceDisplay: "£6,500", mileage: 109000, color: "White", fuel: "Hybrid", transmission: "Automatic", img: "/IMG_9738.jpeg", images: ["/IMG_9738.jpeg","/IMG_9739.jpeg","/IMG_9740.jpeg"] },
-  { year: 2021, make: "Audi", model: "A1", price: 5800, priceDisplay: "£5,800", mileage: 80028, color: "Black", fuel: "Petrol", transmission: "Automatic", img: "/IMG_9792.jpeg", images: ["/IMG_9792.jpeg","/IMG_9793.jpeg","/IMG_9794.jpeg"] }
+  {
+    make: "MINI",
+    model: "Cooper",
+    year: 2010,
+    price: 3989,
+    priceDisplay: "£3,989",
+    mileage: 83386,
+    mileageUnit: "miles",
+    color: "Silver",
+    fuel: "Petrol",
+    transmission: "Automatic",
+    engine: "1.6L",
+    hp: 122,
+    mpg: 42,
+    body: "Hatchback",
+    doors: 3,
+    seats: 4,
+    desc: `**2010 MINI Cooper – Clean & Reliable Automatic Hatchback**
+
+Clean and reliable automatic hatchback with a smooth drive and great fuel economy. Perfect for city use or as a first car, with a stylish MINI design and comfortable interior.
+
+**Key Details**  
+• Price: £3,989  
+• Mileage: 83,386 miles  
+• Exterior colour: Silver  
+• Fuel type: Petrol  
+• Gearbox: Automatic  
+• Drivetrain: Front-wheel drive  
+• Engine: 1.6L Petrol  
+• Horsepower: 122 hp  
+• MPG: 42 MPG (combined)  
+• ULEZ compliant: Yes  
+
+**Vehicle Overview**  
+• Make: MINI  
+• Model: Cooper  
+• Year: 2010  
+• Variant: 1.6 Cooper (122bhp) Hatchback Auto  
+• Body type: Hatchback  
+• Insurance group: 17  
+• Doors: 3  
+• Seats: 4  
+
+**Fuel Economy**  
+• Fuel tank size: 40 L  
+• City: 32 MPG  
+• Highway: 55 MPG  
+
+**Features / Options**  
+• Air conditioning  
+• Alloy wheels  
+• Bluetooth  
+• Smoker package  
+
+**History**  
+• Passed MOT  
+• Valid from 05 December 2025 to 07 December 2026  
+• No insurance write-offs  
+• No theft record  
+• Not imported or exported  
+• Not scrapped  
+
+**Finance Option Available**  
+• Deposit: £700  
+• Monthly payment: £180  
+• Term: 20 months  
+
+A solid, economical MINI with good performance and low running costs.  
+
+🚚 Delivery available  
+📩 Message to reserve or arrange viewing. 🚗`,
+    img: "/IMG_9287.jpeg",
+    images: ["/IMG_9287.jpeg","/IMG_9288.jpeg","/IMG_9289.jpeg","/IMG_9290.jpeg","/IMG_9291.jpeg","/IMG_9292.jpeg","/IMG_9293.jpeg","/IMG_9294.jpeg","/IMG_9295.jpeg","/IMG_9296.jpeg","/IMG_9297.jpeg"]
+  },
+  // ... (your other two cars here - copy them from your current script.js)
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,58 +88,92 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.querySelector('.close');
 
   closeBtn.addEventListener('click', () => modal.style.display = 'none');
-  modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
 
-  function renderCars(list) {
+  function renderCars(carList) {
     carGrid.innerHTML = '';
-    list.forEach((car, i) => {
+
+    if (carList.length === 0) {
+      carGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; padding:3rem; color:#666;">No cars found.</p>';
+      return;
+    }
+
+    carList.forEach((car, index) => {
       const card = document.createElement('div');
       card.className = 'car-card';
       card.innerHTML = `
-        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}">
+        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model} ${car.color || ''}">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
           <div class="car-details">
-            <span>${car.mileage.toLocaleString()} miles</span>
+            <span>${car.mileage.toLocaleString()} ${car.mileageUnit}</span>
             <span>${car.transmission} • ${car.fuel}</span>
             <span>${car.color}</span>
           </div>
+          <p class="car-desc">${car.desc.substring(0, 120)}...</p>
           <div class="btn-group">
-            <button class="btn btn-primary view-details" data-index="${i}">View Details</button>
-            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20${car.year}%20${car.make}%20${car.model}" class="btn btn-secondary">Contact</a>
+            <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
+            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!" 
+               class="btn btn-secondary" target="_blank">Contact</a>
           </div>
         </div>
       `;
       carGrid.appendChild(card);
     });
 
+    // View Details modal
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
-        const car = list[btn.dataset.index];
-        modalTitle.textContent = `${car.year} ${car.make} ${car.model}`;
-        modalImg.src = car.img;
-
-        thumbnails.innerHTML = '';
-        car.images.forEach(src => {
-          const img = document.createElement('img');
-          img.src = src;
-          img.onclick = () => modalImg.src = src;
-          thumbnails.appendChild(img);
-        });
-
-        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20${car.year}%20${car.make}%20${car.model}`;
-        modal.style.display = 'flex';
+        const index = btn.dataset.index;
+        openCarModal(carList[index], index);
       });
     });
   }
 
+  // Function to open modal for a car
+  function openCarModal(car, index) {
+    modalTitle.textContent = `${car.year} ${car.make} ${car.model}`;
+    modalImg.src = car.img;
+    modalFullDesc.innerHTML = car.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+
+    modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
+
+    thumbnails.innerHTML = '';
+    car.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = "Car photo";
+      img.style.width = '60px';
+      img.style.height = '60px';
+      img.style.objectFit = 'cover';
+      img.style.cursor = 'pointer';
+      img.style.borderRadius = '6px';
+      img.onclick = () => modalImg.src = src;
+      thumbnails.appendChild(img);
+    });
+
+    modal.style.display = 'flex';
+    history.replaceState(null, null, `#car-${index}`); // Update URL with hash
+  }
+
+  // Auto-open modal if URL has #car-ID
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#car-')) {
+    const index = parseInt(hash.replace('#car-', ''));
+    if (!isNaN(index) && index >= 0 && index < cars.length) {
+      openCarModal(cars[index], index);
+    }
+  }
+
   function sortCars() {
     let sorted = [...cars];
-    const v = sortSelect.value;
-    if (v === 'price-asc') sorted.sort((a,b) => a.price - b.price);
-    if (v === 'price-desc') sorted.sort((a,b) => b.price - a.price);
-    if (v === 'year-desc') sorted.sort((a,b) => b.year - a.year);
+    const value = sortSelect.value;
+    if (value === 'price-asc') sorted.sort((a, b) => a.price - b.price);
+    if (value === 'price-desc') sorted.sort((a, b) => b.price - a.price);
+    if (value === 'year-desc') sorted.sort((a, b) => b.year - a.year);
     renderCars(sorted);
   }
 
