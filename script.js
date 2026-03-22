@@ -1,4 +1,4 @@
-// script.js - 3 cars with Year before Make/Model + improved description formatting
+// script.js - Professional CarGurus-style with 3 cars
 
 const cars = [
   {
@@ -7,6 +7,7 @@ const cars = [
     year: 2010,
     price: 3989,
     priceDisplay: "£3,989",
+    marketPrice: 4726,
     mileage: 83386,
     mileageUnit: "miles",
     color: "Silver",
@@ -94,6 +95,7 @@ A solid, economical MINI with good performance and low running costs.
     year: 2016,
     price: 6500,
     priceDisplay: "£6,500",
+    marketPrice: 8500,
     mileage: 109000,
     mileageUnit: "miles",
     color: "White",
@@ -189,6 +191,7 @@ A high-spec hybrid estate offering luxury, practicality, and excellent efficienc
     year: 2021,
     price: 5800,
     priceDisplay: "£5,800",
+    marketPrice: 7500,
     mileage: 80028,
     mileageUnit: "miles",
     color: "Black",
@@ -286,7 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalEmail = document.getElementById('modalEmail');
   const closeBtn = document.querySelector('.close');
 
-  // Close modal
   closeBtn.addEventListener('click', () => modal.style.display = 'none');
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.style.display = 'none';
@@ -301,10 +303,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     carList.forEach((car, index) => {
+      const savings = car.marketPrice ? car.marketPrice - car.price : 0;
+      const savingsText = savings > 0 ? `£${savings.toLocaleString()} below` : '';
+
       const card = document.createElement('div');
       card.className = 'car-card';
       card.innerHTML = `
-        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model} ${car.color || ''}">
+        ${savings > 0 ? `
+          <div class="price-badge">
+            <span class="deal">Great Deal</span>
+            <span class="savings">${savingsText}</span>
+          </div>
+        ` : ''}
+        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
@@ -313,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span>${car.transmission} • ${car.fuel}</span>
             <span>${car.color}</span>
           </div>
-          <p class="car-desc">${car.desc.substring(0, 120)}...</p>
+          <p class="car-desc">${car.desc.substring(0, 140)}...</p>
           <div class="btn-group">
             <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
             <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!" 
@@ -324,7 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
       carGrid.appendChild(card);
     });
 
-    // View Details modal
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = btn.dataset.index;
@@ -332,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalTitle.textContent = `${car.year} ${car.make} ${car.model}`;
         modalImg.src = car.img;
-        modalFullDesc.innerHTML = car.desc.replace(/\n/g, '<br>'); // Better line breaks
+        modalFullDesc.innerHTML = car.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
 
         modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
 
@@ -341,11 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const img = document.createElement('img');
           img.src = src;
           img.alt = "Car photo";
-          img.style.width = '60px';
-          img.style.height = '60px';
-          img.style.objectFit = 'cover';
-          img.style.cursor = 'pointer';
-          img.style.borderRadius = '6px';
           img.onclick = () => modalImg.src = src;
           thumbnails.appendChild(img);
         });
