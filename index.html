@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Drive Away Happy!!!
-Quality Cars. Great Prices. Every Day.</title>
+  <title>Mixam's Autos - Used Cars</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
   <header>
     <h1>Mixam's Autos</h1>
-    <p>Find Your Perfect Car Today 🚗
-Trusted Quality • Affordable Prices • Easy Process</p>
+    <p>Quality Used & New Vehicles – Great Deals Every Day</p>
   </header>
 
   <main>
     <section class="filters">
-      <h2>Cars Ready to Drive Away</h2>
+      <h2>Our Inventory</h2>
       <div class="filter-controls">
         <label>Sort by:</label>
         <select id="sortSelect">
@@ -28,15 +26,12 @@ Trusted Quality • Affordable Prices • Easy Process</p>
       </div>
     </section>
 
-    <section class="car-grid" id="carGrid">
-      <!-- Cars added via JS -->
-    </section>
+    <section class="car-grid" id="carGrid"></section>
   </main>
 
-  <!-- Modal -->
   <div id="carModal" class="modal">
     <div class="modal-content">
-      <span class="close">×</span>
+      <span class="close">&times;</span>
       <img id="modalImg" src="" alt="Car Photo">
       <div id="thumbnails" class="thumbnails"></div>
       <h2 id="modalTitle"></h2>
@@ -44,14 +39,13 @@ Trusted Quality • Affordable Prices • Easy Process</p>
 
       <div class="payment-section">
         <h3>Secure This Car</h3>
-        <p>Pay a refundable reservation fee to hold the vehicle while you arrange viewing, test drive, delivery or full purchase.<br><strong>Fee is fully refundable.</strong></p>
-        <ul>
-          <li>£50 refundable booking fee – reserve for viewing 🚗</li>
-          <li>£100 refundable reservation fee – delivery or test drive 📍</li>
-          <li>Deposit or full payment – secure immediately ✅</li>
-        </ul>
-        <p>After payment, send the transaction reference via email for confirmation.</p>
-        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay">Pay Now & Secure Car</a>
+        <p>Pay a refundable fee to reserve while you arrange viewing, test drive, delivery or purchase.<br><strong>Fee is fully refundable.</strong> Choose option:</p>
+
+        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay booking">£50 Booking Fee – Viewing & Test Drive 🚗</a>
+        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay reservation">£100 Reservation Fee – Delivery or Test Drive 📍</a>
+        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay full">Deposit / Full Payment – Secure Now ✅</a>
+
+        <p class="note">After payment, email us the transaction reference for confirmation.</p>
       </div>
 
       <a id="modalEmail" href="#" class="btn btn-email">Contact via Email</a>
