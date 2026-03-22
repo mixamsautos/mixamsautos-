@@ -1,104 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mixam's Autos - Quality Used Cars UK</title>
-  <meta name="description" content="Affordable used cars UK, quality used vehicles, cheap cars for sale UK, cars with finance options, trusted car dealer UK, part exchange cars">
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-</head>
-<body>
-  <!-- Hero – first thing users see -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Mixam's Autos</h1>
-      <h2>Drive Away With Confidence</h2>
-      <p>Quality Used & New Vehicles at Prices You'll Love</p>
+const cars = [
+  {
+    make: "MINI",
+    model: "Cooper",
+    year: 2010,
+    price: 3989,
+    priceDisplay: "£3,989",
+    mileage: 83386,
+    mileageUnit: "miles",
+    color: "Silver",
+    fuel: "Petrol",
+    transmission: "Automatic",
+    engine: "1.6L",
+    hp: 122,
+    mpg: 42,
+    body: "Hatchback",
+    doors: 3,
+    seats: 4,
+    desc: `**2010 MINI Cooper – Clean & Reliable Automatic Hatchback**
 
-      <div class="hero-benefits">
-        <span>✔ Trusted Cars</span>
-        <span>✔ Affordable Prices</span>
-        <span>✔ Fast & Easy Process</span>
-      </div>
+Clean and reliable automatic hatchback with a smooth drive and great fuel economy. Perfect for city use or as a first car, with a stylish MINI design and comfortable interior.
 
-      <p class="hero-tagline">Great Deals Every Day</p>
+**Key Details**  
+• Price: £3,989  
+• Mileage: 83,386 miles  
+• Exterior colour: Silver  
+• Fuel type: Petrol  
+• Gearbox: Automatic  
+• Drivetrain: Front-wheel drive  
+• Engine: 1.6L Petrol  
+• Horsepower: 122 hp  
+• MPG: 42 MPG (combined)  
+• ULEZ compliant: Yes  
 
-      <a href="#inventory" class="btn btn-primary">Browse Cars</a>
-    </div>
-  </header>
+**Vehicle Overview**  
+• Make: MINI  
+• Model: Cooper  
+• Year: 2010  
+• Variant: 1.6 Cooper (122bhp) Hatchback Auto  
+• Body type: Hatchback  
+• Insurance group: 17  
+• Doors: 3  
+• Seats: 4  
 
-  <!-- Inventory – main content -->
-  <section id="inventory" class="inventory">
-    <h2>Find Your Perfect Car</h2>
-    <div class="sort-bar">
-      <label>Sort by:</label>
-      <select id="sortSelect">
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="year-desc">Newest First</option>
-      </select>
-    </div>
-    <p class="inventory-subtitle">Find great value vehicles ready to drive away today.</p>
-    <div class="car-grid" id="carGrid"></div>
-  </section>
+**Fuel Economy**  
+• Fuel tank size: 40 L  
+• City: 32 MPG  
+• Highway: 55 MPG  
 
-  <!-- Call to Action -->
-  <section class="cta">
-    <h2>Ready to Drive?</h2>
-    <p>Great cars don’t stay long – secure yours today.</p>
-    <a href="#inventory" class="btn btn-primary">View All Cars</a>
-  </section>
+**Features / Options**  
+• Air conditioning  
+• Alloy wheels  
+• Bluetooth  
+• Smoker package  
 
-  <!-- Why Choose – now at the very bottom, before footer -->
-  <section class="why-choose">
-    <h2>Why Choose Mixam's Autos?</h2>
-    <p>We make car buying simple, safe and stress-free.</p>
-    <ul>
-      <li>Carefully selected quality vehicles</li>
-      <li>Affordable prices for every budget</li>
-      <li>Friendly and honest service</li>
-      <li>Part exchange welcome</li>
-      <li>UK & worldwide delivery available</li>
-      <li>UK based trusted car dealer</li>
-    </ul>
-    <p>Your satisfaction is our priority.</p>
-  </section>
+**History**  
+• Passed MOT  
+• Valid from 05 December 2025 to 07 December 2026  
+• No insurance write-offs  
+• No theft record  
+• Not imported or exported  
+• Not scrapped  
 
-  <!-- Modal -->
-  <div id="carModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalImg" src="" alt="Car Photo">
-      <div id="thumbnails" class="thumbnails"></div>
-      <h2 id="modalTitle"></h2>
-      <p id="modalFullDesc"></p>
+**Finance Option Available**  
+• Deposit: £700  
+• Monthly payment: £180  
+• Term: 20 months  
 
-      <div class="payment-section">
-        <h3>Secure This Car</h3>
-        <p>Pay a refundable fee to reserve while you arrange viewing, test drive, delivery or purchase.<br><strong>Fee is fully refundable.</strong> Choose option:</p>
+A solid, economical MINI with good performance and low running costs.  
 
-        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay booking">£50 Booking Fee – Viewing & Test Drive</a>
-        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay reservation">£100 Reservation Fee – Delivery or Test Drive</a>
-        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay full">Deposit / Full Payment – Secure Now</a>
+🚚 Delivery available  
+📩 Message to reserve or arrange viewing. 🚗`,
+    img: "/IMG_9287.jpeg",
+    images: ["/IMG_9287.jpeg","/IMG_9288.jpeg","/IMG_9289.jpeg","/IMG_9290.jpeg","/IMG_9291.jpeg","/IMG_9292.jpeg","/IMG_9293.jpeg","/IMG_9294.jpeg","/IMG_9295.jpeg","/IMG_9296.jpeg","/IMG_9297.jpeg"]
+  },
+  // ... (your other two cars here - copy them from your current script.js)
+];
 
-        <p class="note">After payment, email us the transaction reference for confirmation.</p>
-      </div>
+document.addEventListener('DOMContentLoaded', () => {
+  const carGrid = document.getElementById('carGrid');
+  const sortSelect = document.getElementById('sortSelect');
+  const modal = document.getElementById('carModal');
+  const modalImg = document.getElementById('modalImg');
+  const thumbnails = document.getElementById('thumbnails');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalFullDesc = document.getElementById('modalFullDesc');
+  const modalEmail = document.getElementById('modalEmail');
+  const closeBtn = document.querySelector('.close');
 
-      <a id="modalEmail" href="#" class="btn btn-email">Contact via Email</a>
-    </div>
-  </div>
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
 
-  <footer>
-    <p>&copy; 2026 Mixam's Autos. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="about.html">About Us</a> •
-      <a href="privacy.html">Privacy Policy</a> •
-      <a href="terms.html">Terms & Conditions</a> •
-      <a href="mailto:mixam1autos@outlook.com">Contact Us</a>
-    </div>
-  </footer>
+  function renderCars(carList) {
+    carGrid.innerHTML = '';
 
-  <script src="script.js"></script>
-</body>
-</html>
+    if (carList.length === 0) {
+      carGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; padding:3rem; color:#666;">No cars found.</p>';
+      return;
+    }
+
+    carList.forEach((car, index) => {
+      const card = document.createElement('div');
+      card.className = 'car-card';
+      card.innerHTML = `
+        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model} ${car.color || ''}">
+        <div class="car-info">
+          <h3>${car.year} ${car.make} ${car.model}</h3>
+          <p class="price">${car.priceDisplay}</p>
+          <div class="car-details">
+            <span>${car.mileage.toLocaleString()} ${car.mileageUnit}</span>
+            <span>${car.transmission} • ${car.fuel}</span>
+            <span>${car.color}</span>
+          </div>
+          <p class="car-desc">${car.desc.substring(0, 120)}...</p>
+          <div class="btn-group">
+            <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
+            <a href="mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.make + ' ' + car.model + ' ' + car.year)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!" 
+               class="btn btn-secondary" target="_blank">Contact</a>
+          </div>
+        </div>
+      `;
+      carGrid.appendChild(card);
+    });
+
+    // View Details modal
+    document.querySelectorAll('.view-details').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const index = btn.dataset.index;
+        openCarModal(carList[index], index);
+      });
+    });
+  }
+
+  // Function to open modal for a car
+  function openCarModal(car, index) {
+    modalTitle.textContent = `${car.year} ${car.make} ${car.model}`;
+    modalImg.src = car.img;
+    modalFullDesc.innerHTML = car.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+
+    modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry%20about%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}&body=Hi,%0AI%20am%20interested%20in%20${encodeURIComponent(car.year + ' ' + car.make + ' ' + car.model)}%20priced%20at%20${car.priceDisplay}.%0A%0APlease%20provide%20more%20details.%0A%0AThank%20you!`;
+
+    thumbnails.innerHTML = '';
+    car.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = "Car photo";
+      img.style.width = '60px';
+      img.style.height = '60px';
+      img.style.objectFit = 'cover';
+      img.style.cursor = 'pointer';
+      img.style.borderRadius = '6px';
+      img.onclick = () => modalImg.src = src;
+      thumbnails.appendChild(img);
+    });
+
+    modal.style.display = 'flex';
+    history.replaceState(null, null, `#car-${index}`); // Update URL with hash
+  }
+
+  // Auto-open modal if URL has #car-ID
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#car-')) {
+    const index = parseInt(hash.replace('#car-', ''));
+    if (!isNaN(index) && index >= 0 && index < cars.length) {
+      openCarModal(cars[index], index);
+    }
+  }
+
+  function sortCars() {
+    let sorted = [...cars];
+    const value = sortSelect.value;
+    if (value === 'price-asc') sorted.sort((a, b) => a.price - b.price);
+    if (value === 'price-desc') sorted.sort((a, b) => b.price - a.price);
+    if (value === 'year-desc') sorted.sort((a, b) => b.year - a.year);
+    renderCars(sorted);
+  }
+
+  renderCars(cars);
+  sortSelect.addEventListener('change', sortCars);
+});
