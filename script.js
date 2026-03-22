@@ -1,5 +1,3 @@
-// script.js - Professional CarGurus-style with 3 cars
-
 const cars = [
   {
     make: "MINI",
@@ -7,7 +5,6 @@ const cars = [
     year: 2010,
     price: 3989,
     priceDisplay: "£3,989",
-    marketPrice: 4726,
     mileage: 83386,
     mileageUnit: "miles",
     color: "Silver",
@@ -95,7 +92,6 @@ A solid, economical MINI with good performance and low running costs.
     year: 2016,
     price: 6500,
     priceDisplay: "£6,500",
-    marketPrice: 8500,
     mileage: 109000,
     mileageUnit: "miles",
     color: "White",
@@ -191,7 +187,6 @@ A high-spec hybrid estate offering luxury, practicality, and excellent efficienc
     year: 2021,
     price: 5800,
     priceDisplay: "£5,800",
-    marketPrice: 7500,
     mileage: 80028,
     mileageUnit: "miles",
     color: "Black",
@@ -303,18 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     carList.forEach((car, index) => {
-      const savings = car.marketPrice ? car.marketPrice - car.price : 0;
-      const savingsText = savings > 0 ? `£${savings.toLocaleString()} below` : '';
-
       const card = document.createElement('div');
       card.className = 'car-card';
       card.innerHTML = `
-        ${savings > 0 ? `
-          <div class="price-badge">
-            <span class="deal">Great Deal</span>
-            <span class="savings">${savingsText}</span>
-          </div>
-        ` : ''}
         <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
