@@ -1,4 +1,4 @@
-// script.js - Updated with new Mercedes-Benz listing
+// script.js - Updated with 2021 Audi A1 listing (3 cars total)
 
 const cars = [
   {
@@ -86,7 +86,6 @@ A solid, economical MINI with good performance and low running costs.
     ]
   },
 
-  // New listing: 2016 Mercedes-Benz C-Class C350e Sport Estate
   {
     make: "Mercedes-Benz",
     model: "C-Class",
@@ -165,7 +164,7 @@ Finance Option Available
 • Term: 24 months
 
 A high-spec hybrid estate offering luxury, practicality, and excellent efficiency.`,
-    img: "/IMG_9738.jpeg",  // ← Change this to your best main photo for this car
+    img: "/IMG_9738.jpeg",
     images: [
       "/IMG_9738.jpeg",
       "/IMG_9739.jpeg",
@@ -179,11 +178,103 @@ A high-spec hybrid estate offering luxury, practicality, and excellent efficienc
       "/IMG_9747.jpeg",
       "/IMG_9748.jpeg",
       "/IMG_9749.jpeg"
-      // Add or remove filenames based on which images belong to this Mercedes
+    ]
+  },
+
+  // New listing: 2021 Audi A1 1.0 30 TFSI Sport S Tronic Auto
+  {
+    make: "Audi",
+    model: "A1",
+    year: 2021,
+    price: 5800,
+    priceDisplay: "£5,800",
+    mileage: 80028,
+    mileageUnit: "miles",
+    color: "Black",
+    fuel: "Petrol",
+    transmission: "Automatic (S Tronic)",
+    engine: "1.0L",
+    hp: 109,
+    mpg: null, // not specified in your description
+    body: "Hatchback",
+    doors: 5,
+    seats: 5,
+    desc: `Modern, stylish, and economical hatchback 🔥 Smooth automatic drive with sporty design and great fuel efficiency. Ideal first car or daily driver.
+
+Key Details
+• Price: £5,800
+• Mileage: 80,028 miles
+• Exterior colour: Black
+• Fuel type: Petrol
+• Gearbox: Automatic (S Tronic)
+• Drivetrain: Front-wheel drive
+• Engine: 1.0L Petrol
+• Horsepower: 109 hp
+• ULEZ compliant: Yes
+
+Vehicle Overview
+• Make: Audi
+• Model: A1
+• Year: 2021
+• Variant: 1.0 30 TFSI Sport S Tronic
+• Body type: Hatchback
+• Doors: 5
+• Seats: 5
+
+This vehicle is the Audi A1.
+
+Performance & Efficiency
+• Fuel tank size: 40 L
+• Low CO2 emissions: 112 g/km
+• Smooth automatic gearbox
+
+Features / Options
+• Alloy wheels
+• Parking assist
+• Cruise control
+• Bluetooth & DAB radio
+• Air conditioning
+• ISOFIX
+• AUX / USB connectivity
+• Alarm / immobiliser
+
+History
+• Passed MOT
+• Valid from 03 June 2025 to 02 June 2026
+• No insurance write-offs
+• No theft record
+• Not imported or exported
+• Not scrapped
+
+Warranty
+• 6 months warranty included ✔️
+
+Finance Option Available
+• Deposit: £370
+• Monthly payment: £250
+• Term: 24 months
+
+A modern and reliable automatic car with premium feel and low running costs.
+
+🚚 Delivery available`,
+    img: "/IMG_9792.jpeg",  // ← Change to your best main photo for this Audi
+    images: [
+      "/IMG_9792.jpeg",
+      "/IMG_9793.jpeg",
+      "/IMG_9794.jpeg",
+      "/IMG_9795.jpeg",
+      "/IMG_9797.jpeg",
+      "/IMG_9798.jpeg",
+      "/IMG_9800.jpeg",
+      "/IMG_9799.jpeg",
+      "/IMG_9802.jpeg",
+      "/IMG_9801.jpeg",
+      "/IMG_9796.jpeg"
+      // Add/remove based on which images belong to this Audi
     ]
   }
 
-  // You can keep adding more cars here in the same format...
+  // Add more cars here in the same format...
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
