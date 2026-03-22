@@ -7,39 +7,116 @@ body {
   line-height: 1.6;
 }
 
-header {
+.hero {
   background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   color: white;
   text-align: center;
-  padding: 3rem 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 5rem 1rem 4rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-header h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+.hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 0.6rem; }
 
-header p { font-size: 1.2rem; opacity: 0.95; }
+.hero h2 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
 
-.filters {
-  padding: 1.5rem 1rem;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.hero-tagline {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 2rem;
+  font-weight: 600;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
   text-align: center;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s;
 }
 
-.filter-controls {
-  display: inline-flex;
+.btn-primary { background: #22c55e; color: white; }
+.btn-primary:hover { background: #16a34a; }
+
+.btn-secondary { background: #6b7280; color: white; }
+.btn-secondary:hover { background: #4b5563; }
+
+.why-choose, .part-exchange, .delivery, .contact, .cta {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: white;
+}
+
+.why-choose h2, .part-exchange h2, .delivery h2, .contact h2, .cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+}
+
+.why-choose ul {
+  list-style: none;
+  max-width: 600px;
+  margin: 2rem auto;
+  font-size: 1.1rem;
+}
+
+.why-choose li {
+  margin: 1.2rem 0;
+  font-weight: 500;
+}
+
+.inventory {
+  padding: 3rem 1rem;
+  background: #f8f9fa;
+}
+
+.inventory h2 { font-size: 2.4rem; text-align: center; margin-bottom: 1.5rem; }
+
+.sort-bar {
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
-  background: #f1f5f9;
-  padding: 0.8rem 1.5rem;
-  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.sort-bar label { font-weight: 600; }
+
+select {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.inventory-subtitle {
+  text-align: center;
+  color: #4b5563;
+  margin-bottom: 2rem;
 }
 
 .car-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 2rem;
-  padding: 2.5rem 1rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -143,6 +220,15 @@ header p { font-size: 1.2rem; opacity: 0.95; }
 .price-badge .deal { display: block; font-size: 1.15rem; }
 .price-badge .savings { font-size: 0.85rem; opacity: 0.95; }
 
+.cta {
+  background: #1e3a8a;
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.cta h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+
 .modal {
   position: fixed;
   inset: 0;
@@ -159,7 +245,6 @@ header p { font-size: 1.2rem; opacity: 0.95; }
   width: 92%;
   padding: 2.5rem;
   border-radius: 16px;
-  position: relative;
   max-height: 88vh;
   overflow-y: auto;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
@@ -268,6 +353,6 @@ footer {
 /* Mobile */
 @media (max-width: 600px) {
   .car-grid { grid-template-columns: 1fr; }
-  header h1 { font-size: 2.2rem; }
-  .car-card img { height: 220px; }
+  header h1 { font-size: 2.4rem; }
+  .hero { padding: 4rem 1rem 3rem; }
 }
