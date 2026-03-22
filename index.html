@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mixam's Autos - Inventory</title>
+  <title>Mixam's Autos - Quality Used Cars</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
   <header>
@@ -31,7 +31,7 @@
     </section>
   </main>
 
-  <!-- Modal for full details + separated payment buttons -->
+  <!-- CarGurus-style modal -->
   <div id="carModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -40,41 +40,25 @@
       <h2 id="modalTitle"></h2>
       <p id="modalFullDesc"></p>
 
-      <!-- Secure This Car – three separate buttons -->
-      <div class="payment-section" style="margin-top:2rem; padding:1.5rem; background:#f8f9fa; border-radius:8px; text-align:center;">
-        <h3 style="margin-bottom:1rem;">Secure This Car</h3>
-        <p style="margin-bottom:1.5rem; font-size:1rem; color:#444;">
-          Pay a refundable reservation fee to hold the vehicle while you arrange viewing, test drive, delivery or full purchase.<br>
-          Fee is fully refundable.<br><br>
-          Choose the option that suits you:
-        </p>
-
-        <!-- Button 1: £50 booking fee -->
-        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-primary" style="display:block; width:100%; margin:0.8rem 0; padding:1rem; font-size:1.1rem;">
-          £50 refundable booking fee – reserve for viewing 🚗
-        </a>
-
-        <!-- Button 2: £100 reservation fee -->
-        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-primary" style="display:block; width:100%; margin:0.8rem 0; padding:1rem; font-size:1.1rem;">
-          £100 refundable reservation fee – delivery or test drive 📍
-        </a>
-
-        <!-- Button 3: Deposit or full payment -->
-        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-primary" style="display:block; width:100%; margin:0.8rem 0; padding:1rem; font-size:1.1rem; background:#e63946;">
-          Deposit or full payment – secure immediately ✅
-        </a>
-
-        <p style="margin-top:1.5rem; font-size:0.9rem; color:#555;">
-          After payment, send the transaction reference via email for confirmation and next steps.
-        </p>
+      <!-- Payment / Secure section -->
+      <div class="payment-section">
+        <h3>Secure This Car</h3>
+        <p>Pay a refundable reservation fee to hold the vehicle while you arrange viewing, test drive, delivery or full purchase.<br><strong>Fee is fully refundable.</strong></p>
+        <ul>
+          <li>£50 refundable booking fee – reserve for viewing 🚗</li>
+          <li>£100 refundable reservation fee – delivery or test drive 📍</li>
+          <li>Deposit or full payment – secure immediately ✅</li>
+        </ul>
+        <p>After payment, send the transaction reference via email for confirmation.</p>
+        <a href="https://flutterwave.com/pay/mixamautos" target="_blank" class="btn btn-pay">Pay Now & Secure Car</a>
       </div>
 
-      <a id="modalEmail" href="#" class="btn btn-secondary" style="margin-top:1.5rem; display:block; text-align:center;">Contact via Email</a>
+      <a id="modalEmail" href="#" class="btn btn-email">Contact via Email</a>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2024 Mixam's Autos. All rights reserved. | Email: mixam1autos@outlook.com</p>
+    <p>© 2026 Mixam's Autos. All rights reserved. | Email: mixam1autos@outlook.com</p>
   </footer>
 
   <script src="script.js"></script>
