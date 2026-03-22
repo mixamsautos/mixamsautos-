@@ -19,7 +19,7 @@ body {
 
 .hero h2 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
 
-.hero-features {
+.hero-benefits {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
