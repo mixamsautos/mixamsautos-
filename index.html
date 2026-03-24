@@ -9,12 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <!-- Your existing hero -->
+  <!-- Hero with both buttons at the top -->
   <header class="hero">
     <div class="hero-content">
       <h1 class="brand-title">Mixam's Autos</h1>
       <p class="hero-tagline">Quality Cars You Can Trust</p>
-      <a href="#inventory" class="btn btn-primary">Browse Cars</a>
+
+      <div class="hero-buttons">
+        <a href="#inventory" class="btn btn-primary">Browse Cars</a>
+        <a href="bookings.html" class="btn btn-reserve">Reserve / Book</a>
+      </div>
     </div>
   </header>
 
@@ -55,10 +59,10 @@
     <p>Your satisfaction is our priority.</p>
   </section>
 
-  <!-- Car Modal (unchanged) -->
+  <!-- Car Modal -->
   <div id="carModal" class="modal">
     <div class="modal-content">
-      <span class="close">×</span>
+      <span class="close">&times;</span>
       <img id="modalImg" src="" alt="Car Photo">
       <div id="thumbnails" class="thumbnails"></div>
       <h2 id="modalTitle"></h2>
@@ -80,7 +84,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 Mixam's Autos. All rights reserved.</p>
+    <p>&copy; 2024 Mixam's Autos. All rights reserved.</p>
     <div class="footer-links">
       <a href="about.html">About Us</a> •
       <a href="privacy.html">Privacy Policy</a> •
