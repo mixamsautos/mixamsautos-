@@ -7,12 +7,12 @@ body {
   line-height: 1.5;
 }
 
-/* Hero – compact & clean */
+/* Hero – compact with side-by-side buttons */
 .hero {
   background: #1e3a8a;
   color: white;
   text-align: center;
-  padding: 1.8rem 1rem 1.4rem;
+  padding: 2rem 1rem 1.5rem;
   min-height: 28vh;
 }
 
@@ -31,23 +31,23 @@ body {
   opacity: 0.95;
 }
 
-/* Buttons side-by-side */
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 1rem;
-  margin-top: 0.8rem;
+  margin-top: 1rem;
 }
 
 .btn {
-  padding: 0.85rem 2rem;
+  padding: 0.9rem 2rem;
   font-size: 1rem;
   font-weight: 600;
   border-radius: 50px;
   text-decoration: none;
   transition: all 0.2s;
-  min-width: 160px;
+  white-space: nowrap;
+  min-width: 140px;
   text-align: center;
 }
 
@@ -263,11 +263,18 @@ footer {
 
 .footer-links a:hover { color: white; }
 
-/* Mobile */
+/* Mobile – keep buttons side-by-side as much as possible */
 @media (max-width: 600px) {
   .hero { padding: 1.6rem 1rem 1.2rem; }
   .brand-title { font-size: 2.2rem; }
   .hero-tagline { font-size: 1rem; margin: 0 0 0.8rem; }
-  .hero-buttons { flex-direction: column; gap: 0.8rem; }
-  .btn { padding: 0.8rem 2rem; font-size: 0.95rem; min-width: 220px; }
+  .hero-buttons {
+    flex-wrap: nowrap;
+    gap: 0.6rem;
+  }
+  .btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    min-width: 140px;
+  }
 }
