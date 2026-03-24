@@ -7,40 +7,48 @@ body {
   line-height: 1.5;
 }
 
-/* Hero */
+/* Hero – compact & clean */
 .hero {
   background: #1e3a8a;
   color: white;
   text-align: center;
-  padding: 2.2rem 1rem 1.8rem;
-  min-height: 30vh;
+  padding: 1.8rem 1rem 1.4rem;
+  min-height: 28vh;
 }
 
 .brand-title {
   font-weight: 900;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   letter-spacing: -1px;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
   text-transform: uppercase;
 }
 
 .hero-tagline {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin: 0 0 1.2rem;
+  margin: 0 0 1rem;
   opacity: 0.95;
 }
 
-/* Buttons */
+/* Buttons side-by-side */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
 .btn {
-  padding: 0.9rem 2.2rem;
-  font-size: 1.05rem;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
   font-weight: 600;
-  text-align: center;
   border-radius: 50px;
   text-decoration: none;
   transition: all 0.2s;
-  display: inline-block;
+  min-width: 160px;
+  text-align: center;
 }
 
 .btn-primary {
@@ -52,16 +60,17 @@ body {
 .btn-primary:hover {
   background: #16a34a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(34,197,94,0.4);
 }
 
-.btn-secondary {
-  background: #6b7280;
+.btn-reserve {
+  background: #8b5cf6;
   color: white;
+  box-shadow: 0 4px 12px rgba(139,92,246,0.3);
 }
 
-.btn-secondary:hover {
-  background: #4b5563;
+.btn-reserve:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
 }
 
 /* Inventory */
@@ -144,59 +153,6 @@ select {
 .why-choose ul { list-style: none; max-width: 600px; margin: 1.2rem auto; }
 
 .why-choose li { margin: 0.7rem 0; }
-
-/* Bookings page */
-.bookings {
-  padding: 3rem 1rem;
-  background: white;
-  text-align: center;
-}
-
-.bookings .container {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.bookings h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #1e3a8a;
-}
-
-.bookings .payment-section {
-  margin: 2rem 0;
-}
-
-.bookings .btn-pay {
-  display: block;
-  width: 100%;
-  max-width: 420px;
-  margin: 1rem auto;
-  padding: 1.2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: all 0.2s;
-}
-
-.bookings .btn-pay:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-}
-
-.booking { background: #16a34a; }
-.reservation { background: #0891b2; }
-.full { background: #dc2626; }
-
-.bookings .note {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-top: 2rem;
-}
 
 /* Modal */
 .modal {
@@ -309,8 +265,9 @@ footer {
 
 /* Mobile */
 @media (max-width: 600px) {
-  .hero { padding: 2rem 1rem 1.5rem; }
-  .brand-title { font-size: 2.4rem; }
-  .hero-tagline { font-size: 1.1rem; margin: 0 0 1rem; }
-  .btn { padding: 0.8rem 2rem; font-size: 1rem; }
+  .hero { padding: 1.6rem 1rem 1.2rem; }
+  .brand-title { font-size: 2.2rem; }
+  .hero-tagline { font-size: 1rem; margin: 0 0 0.8rem; }
+  .hero-buttons { flex-direction: column; gap: 0.8rem; }
+  .btn { padding: 0.8rem 2rem; font-size: 0.95rem; min-width: 220px; }
 }
