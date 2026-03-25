@@ -201,6 +201,131 @@ select {
   margin: 0.7rem 0;
 }
 
+/* Bookings page – now uses dark blue gradient like hero (no white) */
+.bookings {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  padding: 3rem 1rem;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.bookings .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bookings h1, .bookings h2 {
+  color: white;
+}
+
+.bookings p {
+  color: rgba(255,255,255,0.9);
+}
+
+.bookings .payment-section {
+  margin: 2rem 0;
+}
+
+.bookings .btn-pay {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 1rem auto;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.bookings .btn-pay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.booking { background: #16a34a; }
+.reservation { background: #0891b2; }
+.full { background: #dc2626; }
+
+.bookings .note {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  margin-top: 2rem;
+}
+
+/* Sell page – also dark theme for consistency */
+.sell {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  padding: 3rem 1rem;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.sell .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sell h2 {
+  color: white;
+}
+
+.sell form {
+  text-align: left;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.sell label {
+  display: block;
+  margin: 1rem 0 0.4rem;
+  font-weight: 600;
+  color: white;
+}
+
+.sell input,
+.sell textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.sell input::placeholder,
+.sell textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.sell textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.sell button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.sell button:hover {
+  background: #16a34a;
+}
+
 /* Modal */
 .modal {
   position: fixed;
@@ -298,110 +423,6 @@ select {
   text-decoration: none;
 }
 
-/* Bookings page */
-.bookings {
-  padding: 3rem 1rem;
-  background: white;
-  text-align: center;
-}
-
-.bookings .container {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.bookings h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #1e3a8a;
-}
-
-.bookings .payment-section {
-  margin: 2rem 0;
-}
-
-.bookings .btn-pay {
-  display: block;
-  width: 100%;
-  max-width: 420px;
-  margin: 1rem auto;
-  padding: 1.2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: all 0.2s;
-}
-
-.bookings .btn-pay:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-}
-
-.booking { background: #16a34a; }
-.reservation { background: #0891b2; }
-.full { background: #dc2626; }
-
-.bookings .note {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
-  margin-top: 2rem;
-}
-
-/* Sell page */
-.sell {
-  padding: 3rem 1rem;
-  background: white;
-  text-align: center;
-}
-
-.sell .container {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.sell h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #1e3a8a;
-}
-
-.sell form {
-  text-align: left;
-  max-width: 600px;
-  margin: 2rem auto;
-}
-
-.sell label {
-  display: block;
-  margin: 1rem 0 0.4rem;
-  font-weight: 600;
-}
-
-.sell input,
-.sell textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.sell textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.sell button {
-  margin-top: 1.5rem;
-  width: 100%;
-  padding: 1.2rem;
-  font-size: 1.1rem;
-}
-
 /* Footer */
 footer {
   background: #111827;
@@ -420,7 +441,7 @@ footer {
   color: white;
 }
 
-/* Mobile – ensure buttons stay side-by-side */
+/* Mobile – keep buttons side-by-side */
 @media (max-width: 600px) {
   .hero {
     padding: 1.6rem 1rem 1.2rem;
