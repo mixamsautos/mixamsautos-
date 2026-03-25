@@ -1,4 +1,8 @@
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -7,7 +11,7 @@ body {
   line-height: 1.5;
 }
 
-/* Hero – compact with side-by-side buttons */
+/* Hero – compact with 3 buttons side-by-side */
 .hero {
   background: #1e3a8a;
   color: white;
@@ -35,7 +39,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.9rem;
   margin-top: 1rem;
 }
 
@@ -70,6 +74,17 @@ body {
 
 .btn-reserve:hover {
   background: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.btn-sell {
+  background: #f59e0b;
+  color: white;
+  box-shadow: 0 4px 12px rgba(245,158,11,0.3);
+}
+
+.btn-sell:hover {
+  background: #d97706;
   transform: translateY(-2px);
 }
 
@@ -113,11 +128,20 @@ select {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.car-card img { width: 100%; height: 200px; object-fit: cover; }
+.car-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
-.car-info { padding: 1.2rem; }
+.car-info {
+  padding: 1.2rem;
+}
 
-.car-info h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.car-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
 
 .car-details {
   display: flex;
@@ -127,9 +151,19 @@ select {
   font-size: 0.9rem;
 }
 
-.price { font-size: 1.7rem; font-weight: bold; color: #e63946; margin: 0.5rem 0; }
+.price {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #e63946;
+  margin: 0.5rem 0;
+}
 
-.btn-group { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
+.btn-group {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
 
 /* CTA */
 .cta {
@@ -139,7 +173,10 @@ select {
   text-align: center;
 }
 
-.cta h2 { font-size: 2rem; margin-bottom: 0.8rem; }
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
 
 /* Why Choose */
 .why-choose {
@@ -148,11 +185,21 @@ select {
   background: white;
 }
 
-.why-choose h2 { font-size: 1.9rem; margin-bottom: 1rem; color: #1e3a8a; }
+.why-choose h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
 
-.why-choose ul { list-style: none; max-width: 600px; margin: 1.2rem auto; }
+.why-choose ul {
+  list-style: none;
+  max-width: 600px;
+  margin: 1.2rem auto;
+}
 
-.why-choose li { margin: 0.7rem 0; }
+.why-choose li {
+  margin: 0.7rem 0;
+}
 
 /* Modal */
 .modal {
@@ -215,7 +262,11 @@ select {
   border-radius: 10px;
 }
 
-.payment-section h3 { color: #1e40af; margin-bottom: 0.8rem; text-align: center; }
+.payment-section h3 {
+  color: #1e40af;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
 
 .payment-section .btn-pay {
   display: block;
@@ -247,6 +298,110 @@ select {
   text-decoration: none;
 }
 
+/* Bookings page */
+.bookings {
+  padding: 3rem 1rem;
+  background: white;
+  text-align: center;
+}
+
+.bookings .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bookings h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+}
+
+.bookings .payment-section {
+  margin: 2rem 0;
+}
+
+.bookings .btn-pay {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 1rem auto;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s;
+}
+
+.bookings .btn-pay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.booking { background: #16a34a; }
+.reservation { background: #0891b2; }
+.full { background: #dc2626; }
+
+.bookings .note {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 2rem;
+}
+
+/* Sell page */
+.sell {
+  padding: 3rem 1rem;
+  background: white;
+  text-align: center;
+}
+
+.sell .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sell h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
+
+.sell form {
+  text-align: left;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.sell label {
+  display: block;
+  margin: 1rem 0 0.4rem;
+  font-weight: 600;
+}
+
+.sell input,
+.sell textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.sell textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.sell button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+}
+
 /* Footer */
 footer {
   background: #111827;
@@ -261,20 +416,29 @@ footer {
   margin: 0 0.6rem;
 }
 
-.footer-links a:hover { color: white; }
+.footer-links a:hover {
+  color: white;
+}
 
-/* Mobile – keep buttons side-by-side as much as possible */
+/* Mobile – ensure buttons stay side-by-side */
 @media (max-width: 600px) {
-  .hero { padding: 1.6rem 1rem 1.2rem; }
-  .brand-title { font-size: 2.2rem; }
-  .hero-tagline { font-size: 1rem; margin: 0 0 0.8rem; }
+  .hero {
+    padding: 1.6rem 1rem 1.2rem;
+  }
+  .brand-title {
+    font-size: 2.2rem;
+  }
+  .hero-tagline {
+    font-size: 1rem;
+    margin: 0 0 0.8rem;
+  }
   .hero-buttons {
     flex-wrap: nowrap;
     gap: 0.6rem;
   }
   .btn {
-    padding: 0.8rem 1.6rem;
-    font-size: 0.95rem;
-    min-width: 140px;
+    padding: 0.8rem 1.4rem;
+    font-size: 0.9rem;
+    min-width: 110px;
   }
 }
