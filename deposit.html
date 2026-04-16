@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pay Deposit - Secure Your Vehicle - Mixam's Autos </title>
+  <title>Pay Deposit - Secure Your Vehicle - Mixam's Autos (UK)</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
@@ -41,7 +41,6 @@
       gap: 12px; 
       font-weight: normal; 
       line-height: 1.4; 
-      font-size: 15px;
     }
     input[type="checkbox"] { 
       width: 20px; 
@@ -62,12 +61,8 @@
       margin-top: 20px;
     }
     .btn:hover { background: #1E40AF; }
-    .note { 
-      font-size: 14px; 
-      color: #666; 
-      text-align: center; 
-      margin-top: 25px; 
-    }
+    .payment-section { display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+    .note { font-size: 14px; color: #666; text-align: center; margin-top: 25px; }
     @media (max-width: 600px) {
       .deposit-page { margin: 20px 10px; padding: 25px 15px; }
     }
@@ -78,7 +73,7 @@
     <h1>Secure Your Vehicle</h1>
     <p class="subtitle">Pay a deposit to reserve and secure the car you want</p>
 
-    <form action="https://formspree.io/f/xqegvzev" method="POST">
+    <form id="depositForm" action="https://formspree.io/f/xqegvzev" method="POST">
       
       <!-- Vehicle -->
       <div class="form-section">
@@ -138,30 +133,45 @@
         </div>
       </div>
 
-      <!-- Payment -->
-      <div class="form-section">
+      <!-- Continue to Payment -->
+      <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
+
+      <!-- Payment Section (hidden until continue clicked) -->
+      <div id="paymentSection" class="payment-section">
         <h3>Pay Deposit</h3>
+        <p style="margin-bottom:20px;color:#333;">
+          This deposit confirms your intent to purchase and will be deducted from the final vehicle price.<br>
+          The vehicle will be marked as sold/reserved once payment is received.<br>
+          <strong>Deposit is non-refundable if you withdraw after payment confirmation.</strong>
+        </p>
+
         <a href="https://flutterwave.com/pay/t30if5mkvprd" target="_blank" 
            style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
           Pay Deposit Now (Secure Payment)
         </a>
-      </div>
 
-      <!-- Terms -->
-      <div class="form-section">
-        <p style="font-size:14px;color:#666;">
-          This deposit confirms your intent to purchase and will be deducted from the final vehicle price.<br>
-          The vehicle will be marked as sold/reserved once payment is received.<br>
-          <strong>Deposit is refundable if you withdraw after payment confirmation.</strong>
-        </p>
+        <button type="submit" id="submitAfterPay" class="btn" style="background:#1E40AF;">
+          I Have Paid – Submit Deposit & Confirm
+        </button>
       </div>
-
-      <button type="submit" class="btn">Submit Deposit & Confirm</button>
     </form>
 
     <p class="note">
-      After payment, please return here and submit the form, or email us the transaction reference at mixam1autos@outlook.com for confirmation.
+      After payment, please return here and click "I Have Paid – Submit Deposit & Confirm", or email us the transaction reference at mixam1autos@outlook.com for confirmation.
     </p>
   </div>
+
+  <script>
+    // Show payment section only after Continue is clicked
+    document.getElementById('continueBtn').addEventListener('click', function() {
+      document.getElementById('continueBtn').style.display = 'none';
+      document.getElementById('paymentSection').style.display = 'block';
+    });
+
+    // Submit the form after payment
+    document.getElementById('submitAfterPay').addEventListener('click', function() {
+      document.getElementById('depositForm').submit();
+    });
+  </script>
 </body>
 </html>
