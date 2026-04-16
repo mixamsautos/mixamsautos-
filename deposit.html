@@ -133,10 +133,10 @@
         </div>
       </div>
 
-      <!-- Continue to Payment -->
+      <!-- Continue to Payment (shown first) -->
       <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
 
-      <!-- Payment Section (hidden until continue clicked) -->
+      <!-- Payment Section (hidden until Continue clicked) -->
       <div id="paymentSection" class="payment-section">
         <h3>Pay Deposit</h3>
         <p style="margin-bottom:20px;color:#333;">
@@ -162,13 +162,13 @@
   </div>
 
   <script>
-    // Show payment section only after Continue is clicked
+    // Show payment section only when user clicks Continue
     document.getElementById('continueBtn').addEventListener('click', function() {
       document.getElementById('continueBtn').style.display = 'none';
       document.getElementById('paymentSection').style.display = 'block';
     });
 
-    // Submit the form after payment
+    // Submit the form after user clicks "I Have Paid"
     document.getElementById('submitAfterPay').addEventListener('click', function() {
       document.getElementById('depositForm').submit();
     });
