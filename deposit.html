@@ -62,6 +62,23 @@
     }
     .btn:hover { background: #1E40AF; }
     .payment-section { display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+    .btc-box {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px dashed #2563EB;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .btc-address {
+      font-family: monospace;
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+      word-break: break-all;
+      margin: 12px 0;
+      font-size: 15px;
+    }
     .note { font-size: 14px; color: #666; text-align: center; margin-top: 25px; }
     @media (max-width: 600px) {
       .deposit-page { margin: 20px 10px; padding: 25px 15px; }
@@ -133,7 +150,7 @@
         </div>
       </div>
 
-      <!-- Continue to Payment (shown first) -->
+      <!-- Continue to Payment -->
       <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
 
       <!-- Payment Section (hidden until Continue clicked) -->
@@ -145,10 +162,27 @@
           <strong>Deposit is non-refundable if you withdraw after payment confirmation.</strong>
         </p>
 
+        <!-- Flutterwave -->
         <a href="https://flutterwave.com/pay/t30if5mkvprd" target="_blank" 
            style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
-          Pay Deposit Now (Secure Payment)
+          Pay Deposit Now with Card (Flutterwave)
         </a>
+
+        <!-- Bitcoin Payment -->
+        <div class="btc-box">
+          <h4 style="margin-bottom:12px;">Or Pay with Bitcoin (BTC)</h4>
+          <div class="btc-address" id="btcAddress">
+            1PY4hkC9CcZ7dB4YWz6EpikhxQMfV3u9Bs
+          </div>
+          <button type="button" onclick="copyBTCAddress()" 
+                  style="background:#f1f5f9;color:#0B1F3B;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;">
+            📋 Copy BTC Address
+          </button>
+          <p style="margin-top:12px;font-size:13px;color:#666;">
+            Send any amount in BTC to the address above.<br>
+            After sending, return here and click "I Have Paid".
+          </p>
+        </div>
 
         <button type="submit" id="submitAfterPay" class="btn" style="background:#1E40AF;">
           I Have Paid – Submit Deposit & Confirm
@@ -157,7 +191,7 @@
     </form>
 
     <p class="note">
-      After payment, please return here and click "I Have Paid – Submit Deposit & Confirm", or email us the transaction reference at mixam1autos@outlook.com for confirmation.
+      After payment (card or BTC), please return here and click "I Have Paid – Submit Deposit & Confirm", or email us the transaction reference at mixam1autos@outlook.com for confirmation.
     </p>
   </div>
 
@@ -172,6 +206,17 @@
     document.getElementById('submitAfterPay').addEventListener('click', function() {
       document.getElementById('depositForm').submit();
     });
+
+    // Copy BTC address
+    function copyBTCAddress() {
+      const address = "1PY4hkC9CcZ7dB4YWz6EpikhxQMfV3u9Bs";
+      navigator.clipboard.writeText(address).then(() => {
+        const btn = document.querySelector('button[onclick="copyBTCAddress()"]');
+        const originalText = btn.textContent;
+        btn.textContent = "✅ Copied!";
+        setTimeout(() => btn.textContent = originalText, 2000);
+      });
+    }
   </script>
 </body>
 </html>
