@@ -58,6 +58,8 @@
     <p class="subtitle">Secure your chosen vehicle with a refundable $50 fee</p>
 
     <form id="reservationForm" action="https://formspree.io/f/xqegvzev" method="POST">
+      
+      <!-- Customer Details -->
       <div class="form-section">
         <h3>Your Details</h3>
         <label>First Name</label>
@@ -70,6 +72,7 @@
         <input type="tel" name="phone" required>
       </div>
 
+      <!-- Address -->
       <div class="form-section">
         <h3>Address</h3>
         <label>Street Address</label>
@@ -82,12 +85,14 @@
         <input type="text" name="zip" required>
       </div>
 
+      <!-- Vehicle -->
       <div class="form-section">
         <h3>Vehicle You're Reserving</h3>
         <label>Vehicle Details</label>
         <input type="text" name="vehicle" placeholder="e.g. 2012 Seat Mii" required>
       </div>
 
+      <!-- Appointment -->
       <div class="form-section">
         <h3>Preferred Appointment</h3>
         <label>Preferred Date</label>
@@ -101,19 +106,7 @@
         </select>
       </div>
 
-      <div class="form-section">
-        <h3>Reservation Fee</h3>
-        <p style="margin-bottom:20px;color:#333;">
-          Pay a refundable $50 reservation fee to hold this vehicle.<br>
-          <strong>The fee is fully refundable</strong> and can be applied toward the purchase.
-        </p>
-
-        <a href="https://flutterwave.com/pay/99szh63lt2qw" target="_blank" 
-           style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
-          Pay $50 Reservation Fee (Secure Payment)
-        </a>
-      </div>
-
+      <!-- Agreements -->
       <div class="form-section">
         <div class="checkbox-group">
           <label><input type="checkbox" id="feeCheck" required> I understand the $50 reservation fee is required and is fully refundable.</label>
@@ -123,14 +116,24 @@
         </div>
       </div>
 
+      <!-- Continue to Payment (shown first) -->
       <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
 
+      <!-- Payment Section (hidden until Continue clicked) -->
       <div id="paymentSection" class="payment-section">
-        <a href="https://flutterwave.com/pay/99szh63lt2qw" target="_blank" 
-           style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
-          Pay $50 Reservation Fee (Secure Payment)
+        <h3>Reservation Fee</h3>
+        <p style="margin-bottom:20px;color:#333;">
+          Pay a refundable $50 reservation fee to hold this vehicle.<br>
+          <strong>The fee is fully refundable</strong> and can be applied toward the purchase.
+        </p>
+
+        <!-- PayPal Button -->
+        <a href="https://www.paypal.com/paypalme/osdafpaypal" target="_blank" 
+           style="display:block;background:#003087;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
+          Pay $50 with PayPal (Secure Payment)
         </a>
 
+        <!-- Submit after payment -->
         <button type="submit" id="submitAfterPay" class="btn" style="background:#1E40AF;">
           I Have Paid – Submit Reservation Request
         </button>
@@ -138,20 +141,26 @@
     </form>
 
     <p class="note">
-      After payment, please return here and click "I Have Paid – Submit Reservation Request", or email us the transaction reference at mixam1autos@outlook.com.
+      After payment, please return here and click "I Have Paid – Submit Reservation Request", or email us the transaction reference at mixam1autos@outlook.com for confirmation.
     </p>
   </div>
 
   <script>
+    // Show payment section only after agreements are checked and Continue is clicked
     document.getElementById('continueBtn').addEventListener('click', function() {
-      if (!document.getElementById('feeCheck').checked || !document.getElementById('contactCheck').checked) {
-        alert("Please check both agreement boxes.");
+      const feeCheck = document.getElementById('feeCheck').checked;
+      const contactCheck = document.getElementById('contactCheck').checked;
+
+      if (!feeCheck || !contactCheck) {
+        alert("Please tick both agreement boxes before continuing.");
         return;
       }
+
       document.getElementById('continueBtn').style.display = 'none';
       document.getElementById('paymentSection').style.display = 'block';
     });
 
+    // Submit the form after payment
     document.getElementById('submitAfterPay').addEventListener('click', function() {
       document.getElementById('reservationForm').submit();
     });
