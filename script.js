@@ -1,11 +1,11 @@
-// script.js - Mixam's Autos (UK)
+// script.js - Mixam's Autos (USA)
 const cars = [
   {
     make: "Seat",
     model: "Mii 1.0 SE (60ps) 5d",
     year: 2012,
     price: 3290,
-    priceDisplay: "£3,290",
+    priceDisplay: "$3,290",
     mileage: 29000,
     mileageUnit: "miles",
     color: "Red",
@@ -17,9 +17,9 @@ const cars = [
     drivetrain: "Front-wheel drive",
     desc: `2012 Seat Mii 1.0 SE (60ps) 5d
 
-Price: £3,290
+Price: $3,290
 Mileage: 29,000 mi
-Exterior colour: Red
+Exterior color: Red
 Engine: 1.0 Petrol
 Gearbox: Manual
 Drivetrain: Front-wheel drive
@@ -33,7 +33,7 @@ Overview
 • Year: 2012
 • Variant: 1.0 SE (60ps) 5d
 • Body type: Hatchback
-• Exterior colour: Red
+• Exterior color: Red
 • Mileage: 29,000 mi
 • Condition: Used
 • Insurance group: 1
@@ -76,10 +76,10 @@ History
 • Not scrapped
 
 Finance Option Available
-• Deposit: £250
+• Deposit: $250
 • Monthly payment options:
-  • ~£95/month → 32 months
-  • ~£100/month → 30 months`,
+  • ~$95/month → 32 months
+  • ~$100/month → 30 months`,
     img: "IMG_1568.webp",
     images: [
       "IMG_1568.webp", "IMG_1575.jpeg", "IMG_1576.jpeg", "IMG_1579.jpeg",
@@ -91,7 +91,6 @@ Finance Option Available
 let currentCar = null;
 let currentImageIndex = 0;
 
-// Render inventory grid
 function renderCars(carList) {
   const carGrid = document.getElementById('carGrid');
   if (!carGrid) return;
@@ -127,7 +126,6 @@ function renderCars(carList) {
   });
 }
 
-// Modal with Email-only contact button
 function showCarModal() {
   if (!currentCar) return;
 
@@ -171,7 +169,6 @@ function showCarModal() {
           ${currentCar.desc}
         </div>
 
-        <!-- Email-only Contact Button -->
         <a href="mailto:mixam1autos@outlook.com?subject=Interest in 2012 Seat Mii 1.0 SE (60ps) 5d" 
            style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">
           📧 Email Us About This Car
@@ -226,7 +223,6 @@ function closeModal() {
   if (modal) modal.remove();
 }
 
-// Sort function
 function sortCars() {
   const value = document.getElementById('sortSelect').value;
   let sorted = [...cars];
@@ -236,7 +232,6 @@ function sortCars() {
   renderCars(sorted);
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   const sortSelect = document.getElementById('sortSelect');
   if (sortSelect) sortSelect.addEventListener('change', sortCars);
