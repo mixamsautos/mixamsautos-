@@ -7,12 +7,7 @@
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f9fa;
-      color: #1C1C1C;
-      line-height: 1.6;
-    }
+    body { font-family: 'Poppins', sans-serif; background: #f8f9fa; color: #1C1C1C; line-height: 1.6; }
     .trade-page {
       max-width: 800px;
       margin: 40px auto;
@@ -69,70 +64,48 @@
     <p class="subtitle">Get a competitive offer for your vehicle. We make the process fast and easy.</p>
 
     <form action="https://formspree.io/f/xqegvzev" method="POST">
-      
-      <!-- 1. Owner Contact Information -->
       <div class="form-section">
         <h3>Owner Contact Information</h3>
         <label>First Name</label>
         <input type="text" name="first_name" required>
-        
         <label>Last Name</label>
         <input type="text" name="last_name" required>
-        
         <label>Email Address</label>
         <input type="email" name="email" required>
-        
         <label>Phone Number</label>
         <input type="tel" name="phone" required>
-        
-        <label>Preferred Contact Method</label>
-        <select name="contact_method">
-          <option value="">Select...</option>
-          <option value="Call">Call</option>
-          <option value="Text">Text</option>
-          <option value="WhatsApp">WhatsApp</option>
-          <option value="Email">Email</option>
-        </select>
       </div>
 
-      <!-- 2. Address Information -->
       <div class="form-section">
         <h3>Address Information</h3>
         <label>Street Address</label>
         <input type="text" name="street" required>
-        
         <label>City</label>
         <input type="text" name="city" required>
-        
-        <label>Postcode</label>
-        <input type="text" name="postcode" required>
+        <label>State</label>
+        <input type="text" name="state" required>
+        <label>ZIP Code</label>
+        <input type="text" name="zip" required>
       </div>
 
-      <!-- 3. Vehicle Basic Information -->
       <div class="form-section">
         <h3>Vehicle Basic Information</h3>
         <label>Make</label>
-        <input type="text" name="make" required placeholder="e.g. Ford">
-        
+        <input type="text" name="make" required>
         <label>Model</label>
-        <input type="text" name="model" required placeholder="e.g. F-150">
-        
+        <input type="text" name="model" required>
         <label>Year</label>
         <input type="number" name="year" required>
-        
         <label>Mileage</label>
-        <input type="text" name="mileage" required placeholder="e.g. 92,707 miles">
-        
-        <label>Registration Number (optional)</label>
+        <input type="text" name="mileage" required>
+        <label>VIN (optional)</label>
         <input type="text" name="vin">
       </div>
 
-      <!-- 4. Vehicle Specifications -->
       <div class="form-section">
         <h3>Vehicle Specifications</h3>
         <label>Trim (optional)</label>
-        <input type="text" name="trim" placeholder="e.g. FX4">
-        
+        <input type="text" name="trim">
         <label>Body Type</label>
         <select name="body_type" required>
           <option value="">Select...</option>
@@ -143,14 +116,12 @@
           <option value="Hatchback">Hatchback</option>
           <option value="Van">Van</option>
         </select>
-        
         <label>Transmission</label>
         <select name="transmission" required>
           <option value="">Select...</option>
           <option value="Automatic">Automatic</option>
           <option value="Manual">Manual</option>
         </select>
-        
         <label>Drivetrain</label>
         <select name="drivetrain" required>
           <option value="">Select...</option>
@@ -159,18 +130,16 @@
           <option value="AWD">AWD</option>
           <option value="4WD">4WD</option>
         </select>
-        
         <label>Fuel Type</label>
         <select name="fuel_type" required>
           <option value="">Select...</option>
-          <option value="Petrol">Petrol</option>
+          <option value="Gasoline">Gasoline</option>
           <option value="Diesel">Diesel</option>
           <option value="Hybrid">Hybrid</option>
           <option value="Electric">Electric</option>
         </select>
       </div>
 
-      <!-- 5. Vehicle Condition -->
       <div class="form-section">
         <h3>Vehicle Condition</h3>
         <label>Overall Condition</label>
@@ -181,7 +150,6 @@
           <option value="Good">Good</option>
           <option value="Fair">Fair</option>
         </select>
-        
         <div class="checkbox-group">
           <label><input type="checkbox" name="accidents"> Any accidents?</label>
         </div>
@@ -191,48 +159,35 @@
         <div class="checkbox-group">
           <label><input type="checkbox" name="mechanical_issues"> Any mechanical issues?</label>
         </div>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="warning_lights"> Any warning lights on dashboard?</label>
-        </div>
-        
-        <label>Number of previous owners (optional)</label>
-        <input type="number" name="previous_owners">
       </div>
 
-      <!-- 6. Vehicle Appearance -->
       <div class="form-section">
         <h3>Vehicle Appearance</h3>
-        <label>Exterior Colour</label>
+        <label>Exterior Color</label>
         <input type="text" name="exterior_color">
-        
-        <label>Interior Colour</label>
+        <label>Interior Color</label>
         <input type="text" name="interior_color">
       </div>
 
-      <!-- 7. Upload Photos -->
       <div class="form-section">
         <h3>Upload Vehicle Photos (optional)</h3>
-        <p style="margin-bottom:15px; color:#6B7280;">Please email your photos to mixam1autos@outlook.com after submitting this form. Include the make, model, and year in the email subject.</p>
+        <p style="margin-bottom:15px; color:#6B7280;">Please email your photos to mixam1autos@outlook.com after submitting this form.</p>
         <div class="upload-box">
           <p>📸 Photos will be requested via email after submission</p>
         </div>
       </div>
 
-      <!-- 8. Price Expectation -->
       <div class="form-section">
         <h3>Price Expectation (optional)</h3>
         <label>How much would you like for your vehicle?</label>
-        <input type="text" name="asking_price" placeholder="e.g. £12,500">
+        <input type="text" name="asking_price" placeholder="$">
       </div>
 
-      <!-- 9. Additional Information -->
       <div class="form-section">
         <h3>Additional Information</h3>
-        <label>Recent repairs, service history, upgrades, or any other details</label>
-        <textarea name="additional_info" rows="5" placeholder="e.g. New tyres, recent service, etc."></textarea>
+        <textarea name="additional_info" rows="5" placeholder="Recent repairs, service history, etc."></textarea>
       </div>
 
-      <!-- 10. Agreements -->
       <div class="form-section">
         <div class="checkbox-group">
           <label><input type="checkbox" name="accurate_info" required> I confirm the information provided is accurate.</label>
@@ -242,7 +197,6 @@
         </div>
       </div>
 
-      <!-- Submit -->
       <button type="submit" class="btn">Get My Trade-In Offer</button>
     </form>
   </div>
