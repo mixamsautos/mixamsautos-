@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Mixam's Autos</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD2zrGcyyUzpPbZSjWx56rooDfcfmv56wNw",
+      authDomain: "mixam-s-autos.firebaseapp.com",
+      projectId: "mixam-s-autos",
+      storageBucket: "mixam-s-autos.firebasestorage.app",
+      messagingSenderId: "15573919933",
+      appId: "1:15573919933:web:9e7c9c89a56fb051a3efd4",
+      measurementId: "G-D35E95FRRQ"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function loginWithEmail() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Login successful!");
+          window.location.href = "index.html";
+        })
+        .catch(err => alert(err.message));
+    }
+
+    function signupWithEmail() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Account created successfully! You can now login.");
+          window.location.href = "login.html";
+        })
+        .catch(err => alert(err.message));
+    }
+
+    function loginWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider)
+        .then(() => {
+          alert("Google login successful!");
+          window.location.href = "index.html";
+        })
+        .catch(err => alert(err.message));
+    }
+
+    function resetPassword() {
+      const email = document.getElementById('email').value;
+      if (!email) return alert("Enter your email first");
+      auth.sendPasswordResetEmail(email)
+        .then(() => alert("Password reset email sent! Check your inbox."))
+        .catch(err => alert(err.message));
+    }
+  </script>
+</head>
+<body>
+  <div style="max-width: 420px; margin: 80px auto; padding: 40px 30px; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
+    <h2>Welcome to Mixam's Autos</h2>
+    <p>Sign in to continue</p>
+
+    <input type="email" id="email" placeholder="Email address" style="width:100%; padding:14px; margin:12px 0; border:1px solid #ddd; border-radius:8px; font-size:16px;">
+    <input type="password" id="password" placeholder="Password" style="width:100%; padding:14px; margin:12px 0; border:1px solid #ddd; border-radius:8px; font-size:16px;">
+
+    <button onclick="loginWithEmail()" style="width:100%; padding:14px; background:#2563eb; color:white; border:none; border-radius:8px; margin:10px 0; font-size:16px;">Login with Email</button>
+    <button onclick="signupWithEmail()" style="width:100%; padding:14px; background:#10b981; color:white; border:none; border-radius:8px; margin:10px 0; font-size:16px;">Create New Account</button>
+
+    <button onclick="loginWithGoogle()" style="width:100%; padding:14px; background:#4285f4; color:white; border:none; border-radius:8px; margin:15px 0 10px; font-size:16px;">Sign in with Google</button>
+
+    <p><a href="#" onclick="resetPassword(); return false;">Forgot Password?</a></p>
+    <p><a href="index.html">← Back to Home</a></p>
+  </div>
+</body>
+</html>
