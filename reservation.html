@@ -17,7 +17,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
     h1 { text-align: center; margin-bottom: 10px; color: #0B1F3B; }
-    .subtitle { text-align: center; color: #555; margin-bottom: 30px; }
+    .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
     .form-section { margin-bottom: 35px; }
     .form-section h3 { margin-bottom: 18px; color: #0B1F3B; border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; }
     label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14.5px; }
@@ -55,52 +55,43 @@
 <body>
   <div class="reservation-page">
     <h1>Reserve a Vehicle</h1>
-    <p class="subtitle">Secure your chosen vehicle with a refundable £50 fee</p>
+    <p class="subtitle">Secure your chosen vehicle with a refundable $50 fee</p>
 
     <form id="reservationForm" action="https://formspree.io/f/xqegvzev" method="POST">
-      
-      <!-- Customer Details -->
       <div class="form-section">
         <h3>Your Details</h3>
         <label>First Name</label>
         <input type="text" name="first_name" required>
-
         <label>Last Name</label>
         <input type="text" name="last_name" required>
-
         <label>Email Address</label>
         <input type="email" name="email" required>
-
-        <label>Mobile Number</label>
+        <label>Phone Number</label>
         <input type="tel" name="phone" required>
       </div>
 
-      <!-- Address -->
       <div class="form-section">
         <h3>Address</h3>
         <label>Street Address</label>
         <input type="text" name="street" required>
-
-        <label>City / Town</label>
+        <label>City</label>
         <input type="text" name="city" required>
-
-        <label>Postcode</label>
-        <input type="text" name="postcode" required>
+        <label>State</label>
+        <input type="text" name="state" required>
+        <label>ZIP Code</label>
+        <input type="text" name="zip" required>
       </div>
 
-      <!-- Vehicle -->
       <div class="form-section">
         <h3>Vehicle You're Reserving</h3>
         <label>Vehicle Details</label>
-        <input type="text" name="vehicle" placeholder="e.g. 2010 Ford F-150 FX4 SuperCab 4WD" required>
+        <input type="text" name="vehicle" placeholder="e.g. 2012 Seat Mii" required>
       </div>
 
-      <!-- Appointment -->
       <div class="form-section">
         <h3>Preferred Appointment</h3>
         <label>Preferred Date</label>
         <input type="date" name="appointment_date" required>
-
         <label>Preferred Time</label>
         <select name="appointment_time" required>
           <option value="">Select...</option>
@@ -110,32 +101,38 @@
         </select>
       </div>
 
-      <!-- Agreements -->
+      <div class="form-section">
+        <h3>Reservation Fee</h3>
+        <p style="margin-bottom:20px;color:#333;">
+          Pay a refundable $50 reservation fee to hold this vehicle.<br>
+          <strong>The fee is fully refundable</strong> and can be applied toward the purchase.
+        </p>
+
+        <a href="https://flutterwave.com/pay/99szh63lt2qw" target="_blank" 
+           style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
+          Pay $50 Reservation Fee (Secure Payment)
+        </a>
+      </div>
+
       <div class="form-section">
         <div class="checkbox-group">
-          <label><input type="checkbox" id="feeCheck" required> I understand the £50 reservation fee is required to hold the vehicle and is fully refundable.</label>
+          <label><input type="checkbox" id="feeCheck" required> I understand the $50 reservation fee is required and is fully refundable.</label>
         </div>
         <div class="checkbox-group">
           <label><input type="checkbox" id="contactCheck" required> I agree to be contacted by Mixam's Autos regarding this reservation.</label>
         </div>
       </div>
 
-      <!-- Continue to Payment -->
       <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
 
-      <!-- Payment Section (hidden until Continue clicked) -->
       <div id="paymentSection" class="payment-section">
-        <h3>Reservation Fee</h3>
-        <p style="margin-bottom:20px;color:#333;">
-          Pay a refundable £50 reservation fee to hold this vehicle.<br>
-          <strong>The fee is fully refundable</strong> and can be applied toward the purchase.
-        </p>
-
-        <a href="https://flutterwave.com/pay/99szh63lt2qw" target="_blank" id="payBtn"
+        <a href="https://flutterwave.com/pay/99szh63lt2qw" target="_blank" 
            style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
-          Pay £50 Reservation Fee (Secure Payment)
+          Pay $50 Reservation Fee (Secure Payment)
         </a>
 
+        <button type="submit" id="submitAfterPay" class="btn" style="background:#1E40AF;">
+          I Have Paid – Submit Reservation Request
         </button>
       </div>
     </form>
@@ -146,22 +143,15 @@
   </div>
 
   <script>
-    // Show payment section only after agreements are checked
     document.getElementById('continueBtn').addEventListener('click', function() {
-      const feeCheck = document.getElementById('feeCheck').checked;
-      const contactCheck = document.getElementById('contactCheck').checked;
-
-      if (!feeCheck || !contactCheck) {
-        alert("Please tick both agreement boxes before continuing.");
+      if (!document.getElementById('feeCheck').checked || !document.getElementById('contactCheck').checked) {
+        alert("Please check both agreement boxes.");
         return;
       }
-
-      // Hide Continue button and show payment section
       document.getElementById('continueBtn').style.display = 'none';
       document.getElementById('paymentSection').style.display = 'block';
     });
 
-    // Submit the form after payment
     document.getElementById('submitAfterPay').addEventListener('click', function() {
       document.getElementById('reservationForm').submit();
     });
