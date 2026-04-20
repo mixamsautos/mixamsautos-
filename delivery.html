@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Request Delivery - Mixam's Autos (UK)</title>
+  <title>Request Delivery - Mixam's Autos </title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f9fa;
-      color: #1C1C1C;
-      line-height: 1.6;
-    }
+    body { font-family: 'Poppins', sans-serif; background: #f8f9fa; color: #1C1C1C; line-height: 1.6; }
     .delivery-page {
       max-width: 720px;
       margin: 40px auto;
@@ -62,52 +57,41 @@
     <p class="subtitle">Mixam's Autos – Request Delivery</p>
 
     <form action="https://formspree.io/f/xqegvzev" method="POST">
-      
-      <!-- 1. Personal Details -->
       <div class="form-section">
         <h3>Personal Details</h3>
         <label>Full Name</label>
         <input type="text" name="full_name" required>
-
         <label>Email Address</label>
         <input type="email" name="email" required>
-
         <label>Phone Number</label>
         <input type="tel" name="phone" required>
       </div>
 
-      <!-- 2. Delivery Information -->
       <div class="form-section">
         <h3>Delivery Information</h3>
         <label>Full Delivery Address</label>
         <input type="text" name="delivery_address" required>
-
-        <label>Postcode</label>
-        <input type="text" name="postcode" required>
-
+        <label>ZIP Code</label>
+        <input type="text" name="zip" required>
         <label>Preferred Delivery Date</label>
         <input type="date" name="delivery_date" required>
-
         <label>Preferred Time Slot</label>
         <select name="time_slot" required>
           <option value="">Select...</option>
-          <option value="Morning">Morning (9am – 12pm)</option>
-          <option value="Afternoon">Afternoon (12pm – 4pm)</option>
-          <option value="Evening">Evening (4pm – 7pm)</option>
+          <option value="Morning">Morning (9am–12pm)</option>
+          <option value="Afternoon">Afternoon (12pm–4pm)</option>
+          <option value="Evening">Evening (4pm–7pm)</option>
         </select>
       </div>
 
-      <!-- 3. Vehicle Details - Now empty for customer to fill -->
       <div class="form-section">
         <h3>Vehicle Details</h3>
         <label>Vehicle Name</label>
-        <input type="text" name="vehicle" placeholder="e.g. 2012 Seat Mii 1.0 SE (60ps) 5d" required>
-
+        <input type="text" name="vehicle" placeholder="e.g. 2012 Seat Mii" required>
         <label>Order Reference (optional)</label>
         <input type="text" name="order_reference">
       </div>
 
-      <!-- 4. Trade-In -->
       <div class="form-section">
         <h3>Trade-In</h3>
         <label>Are you trading in a vehicle?</label>
@@ -120,17 +104,14 @@
         <div id="tradeInDetails" style="display:none;">
           <label>Trade-in Vehicle (Make/Model)</label>
           <input type="text" name="trade_in_vehicle">
-
           <label>Registration Number</label>
           <input type="text" name="reg_number">
-
           <div class="checkbox-group">
             <label><input type="checkbox" name="trade_in_ready"> I confirm the trade-in vehicle will be available with keys and documents.</label>
           </div>
         </div>
       </div>
 
-      <!-- 5. Payment Confirmation -->
       <div class="form-section">
         <h3>Payment Confirmation</h3>
         <label>Have you completed your initial payment?</label>
@@ -139,12 +120,10 @@
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
-
         <label>Payment Reference (if paid)</label>
         <input type="text" name="payment_reference">
       </div>
 
-      <!-- 6. Agreement -->
       <div class="form-section">
         <div class="checkbox-group">
           <label><input type="checkbox" name="confirm_details" required> I confirm the details provided are correct and I am ready for delivery once payment is confirmed.</label>
@@ -160,14 +139,8 @@
   </div>
 
   <script>
-    // Show trade-in fields when "Yes" is selected
     document.querySelector('select[name="trade_in"]').addEventListener('change', function() {
-      const details = document.getElementById('tradeInDetails');
-      if (this.value === "Yes") {
-        details.style.display = 'block';
-      } else {
-        details.style.display = 'none';
-      }
+      document.getElementById('tradeInDetails').style.display = this.value === "Yes" ? 'block' : 'none';
     });
   </script>
 </body>
