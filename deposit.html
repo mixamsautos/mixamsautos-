@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pay Deposit - Secure Your Vehicle - Mixam's Autos </title>
+  <title>Pay Deposit - Mixam's Autos </title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
@@ -32,13 +32,35 @@
     .checkbox-group { margin: 20px 0; }
     .checkbox-group label { display: flex; align-items: flex-start; gap: 12px; font-weight: normal; line-height: 1.4; }
     input[type="checkbox"] { width: 20px; height: 20px; accent-color: #2563EB; margin-top: 3px; }
-    .btn { width: 100%; height: 56px; background: #2563EB; color: white; border: none; border-radius: 10px; font-size: 17px; font-weight: 600; cursor: pointer; margin-top: 20px; }
+    .btn {
+      width: 100%;
+      height: 56px;
+      background: #2563EB;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+    }
     .btn:hover { background: #1E40AF; }
     .payment-section { display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
-    .btc-box { background: #f8f9fa; padding: 20px; border-radius: 10px; border: 2px dashed #2563EB; text-align: center; margin: 20px 0; }
-    .btc-address { font-family: monospace; background: white; padding: 12px; border-radius: 8px; word-break: break-all; margin: 12px 0; font-size: 15px; }
+    .payment-option {
+      display: block;
+      background: #f8f9fa;
+      color: #0B1F3B;
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      margin: 12px 0;
+      text-decoration: none;
+    }
     .note { font-size: 14px; color: #666; text-align: center; margin-top: 25px; }
-    @media (max-width: 600px) { .deposit-page { margin: 20px 10px; padding: 25px 15px; } }
+    @media (max-width: 600px) {
+      .deposit-page { margin: 20px 10px; padding: 25px 15px; }
+    }
   </style>
 </head>
 <body>
@@ -47,27 +69,25 @@
     <p class="subtitle">Pay a deposit to reserve and secure the car you want</p>
 
     <form id="depositForm" action="https://formspree.io/f/xqegvzev" method="POST">
+      
       <div class="form-section">
         <h3>Vehicle You're Securing</h3>
         <label>Vehicle Details</label>
-        <input type="text" name="vehicle" placeholder="e.g. 2012 Seat Mii" required>
+        <input type="text" id="vehicleInput" name="vehicle" placeholder="e.g. 2012 Seat Mii" required>
       </div>
 
       <div class="form-section">
         <h3>Your Details</h3>
         <label>Full Name</label>
-        <input type="text" name="full_name" required>
+        <input type="text" id="nameInput" name="full_name" required>
         <label>Mobile Number</label>
         <input type="tel" name="phone" required>
         <label>Email Address</label>
         <input type="email" name="email" required>
-        <label>Address (for delivery confirmation)</label>
-        <input type="text" name="address" placeholder="Street, City, ZIP Code">
       </div>
 
       <div class="form-section">
         <h3>Deposit Amount</h3>
-        <p style="margin-bottom:15px;color:#555;">Choose deposit amount (minimum $100 recommended).</p>
         <select name="deposit_amount" required style="margin-bottom:20px;">
           <option value="">Select deposit amount</option>
           <option value="$100">$100</option>
@@ -99,22 +119,11 @@
       <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
 
       <div id="paymentSection" class="payment-section">
-        <h3>Pay Deposit</h3>
-        <p style="margin-bottom:20px;color:#333;">
-          This deposit confirms your intent to purchase and will be deducted from the final vehicle price.<br>
-          The vehicle will be marked as sold/reserved once payment is received.<br>
-          <strong>Deposit is non-refundable if you withdraw after payment confirmation.</strong>
-        </p>
-
-        <a href="https://flutterwave.com/pay/t30if5mkvprd" target="_blank" style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
-          Pay Deposit Now with Card (Flutterwave)
-        </a>
-
-        <div class="btc-box">
-          <h4 style="margin-bottom:12px;">Or Pay with Bitcoin (BTC)</h4>
-          <div class="btc-address">1PY4hkC9CcZ7dB4YWz6EpikhxQMfV3u9Bs</div>
-          <button type="button" onclick="copyBTCAddress()" style="background:#f1f5f9;color:#0B1F3B;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;">📋 Copy BTC Address</button>
-        </div>
+        <h3>Choose Payment Method</h3>
+        
+        <a href="#" class="payment-option" onclick="selectMethod('PayPal')">Pay with PayPal</a>
+        <a href="#" class="payment-option" onclick="selectMethod('Chime')">Pay with Chime</a>
+        <a href="#" class="payment-option" onclick="selectMethod('Crypto')">Pay with Crypto</a>
 
         <button type="submit" id="submitAfterPay" class="btn" style="background:#1E40AF;">
           I Have Paid – Submit Deposit & Confirm
@@ -123,11 +132,22 @@
     </form>
 
     <p class="note">
-      After payment (card or BTC), please return here and click "I Have Paid – Submit Deposit & Confirm", or email us the transaction reference at mixam1autos@outlook.com.
+      After payment, please return here and click "I Have Paid – Submit Deposit & Confirm", or email us the transaction reference at mixam1autos@outlook.com.
     </p>
   </div>
 
   <script>
+    let selectedMethod = "";
+
+    function selectMethod(method) {
+      selectedMethod = method;
+      const name = document.getElementById('nameInput').value || "Customer";
+      const vehicle = document.getElementById('vehicleInput').value || "the vehicle";
+      const message = `Hey, I want to make a deposit using ${method} for the ${vehicle}. My name is ${name}.`;
+      const whatsappUrl = `https://wa.me/13512301881?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
     document.getElementById('continueBtn').addEventListener('click', function() {
       document.getElementById('continueBtn').style.display = 'none';
       document.getElementById('paymentSection').style.display = 'block';
@@ -136,12 +156,6 @@
     document.getElementById('submitAfterPay').addEventListener('click', function() {
       document.getElementById('depositForm').submit();
     });
-
-    function copyBTCAddress() {
-      navigator.clipboard.writeText("1PY4hkC9CcZ7dB4YWz6EpikhxQMfV3u9Bs").then(() => {
-        alert("BTC address copied!");
-      });
-    }
   </script>
 </body>
 </html>
