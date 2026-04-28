@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Mixam's Autos</title>
+  <title>Login - Mixam's Pets</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   
@@ -29,7 +29,7 @@
       const password = document.getElementById('password').value;
       auth.signInWithEmailAndPassword(email, password)
         .then(() => {
-          alert("Login successful! Welcome back.");
+          alert("Welcome back to Mixam's Pets!");
           window.location.href = "index.html";
         })
         .catch(err => alert(err.message));
@@ -40,7 +40,7 @@
       const password = document.getElementById('password').value;
       auth.createUserWithEmailAndPassword(email, password)
         .then(() => {
-          alert("Account created successfully! You can now log in.");
+          alert("Account created! Welcome to the Mixam's Pets family 🐾");
           window.location.href = "login.html";
         })
         .catch(err => alert(err.message));
@@ -67,7 +67,7 @@
 </head>
 <body>
   <div style="max-width: 420px; margin: 80px auto; padding: 40px 30px; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
-    <h2>Welcome to Mixam's Autos</h2>
+    <h2>Welcome to Mixam's Pets 🐾</h2>
     <p>Sign in to continue</p>
 
     <input type="email" id="email" placeholder="Email address" style="width:100%; padding:14px; margin:12px 0; border:1px solid #ddd; border-radius:8px; font-size:16px;">
@@ -75,8 +75,7 @@
 
     <button onclick="loginWithEmail()" style="width:100%; padding:14px; background:#2563eb; color:white; border:none; border-radius:8px; margin:10px 0; font-size:16px;">Login with Email</button>
     <button onclick="signupWithEmail()" style="width:100%; padding:14px; background:#10b981; color:white; border:none; border-radius:8px; margin:10px 0; font-size:16px;">Create New Account</button>
-
-    <button onclick="loginWithGoogle()" style="width:100%; padding:14px; background:#4285f4; color:white; border:none; border-radius:8px; margin:15px 0 10px; font-size:16px;">Sign in with Google</button>
+    <button onclick="loginWithGoogle()" style="width:100%; padding:14px; background:#4285f4; color:white; border:none; border-radius:8px; margin:15px 0; font-size:16px;">Sign in with Google</button>
 
     <p style="margin-top: 20px;"><a href="#" onclick="resetPassword(); return false;">Forgot Password?</a></p>
     <p><a href="index.html">← Back to Home</a></p>
