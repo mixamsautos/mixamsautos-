@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mixam's Autos</title>
+  <title>Mixam's Pets</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   
-  <!-- Firebase SDK (using your exact config) -->
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 
@@ -28,29 +28,29 @@
 </head>
 <body>
   <header>
-    <h1>Mixam's Autos</h1>
+    <h1>Mixam's Pets 🐾</h1>
   </header>
 
   <main>
     <section class="hero">
-      <h1>Drive Your Next Vehicle With Confidence</h1>
-      <p>Quality Pre-Owned Vehicles • Flexible Financing • Nationwide Delivery</p>
+      <h1>Happy Pets, Happy Homes</h1>
+      <p>Quality Pet Supplies • Expert Care • Loving Service</p>
       
       <div class="hero-buttons">
-        <a href="#" onclick="showInventory(); return false;" class="btn btn-primary">Browse Inventory</a>
+        <a href="#" onclick="showInventory(); return false;" class="btn btn-primary">Shop Now</a>
         <a href="login.html" class="btn btn-secondary">Login / Sign Up</a>
-        <a href="reservation.html" class="btn btn-secondary">Reserve a Vehicle</a>
+        <a href="reservation.html" class="btn btn-secondary">Book Appointment</a>
       </div>
     </section>
 
     <section id="inventory-section" style="display: none; padding: 40px 20px;">
-      <h2>Our Inventory</h2>
+      <h2>Our Pet Products</h2>
       <div class="car-grid" id="carGrid"></div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Mixam's Autos. All rights reserved.</p>
+    <p>&copy; 2025 Mixam's Pets. All rights reserved. | mixampet.com | mixam1autos@outlook.com</p>
   </footer>
 
   <script src="script.js"></script>
